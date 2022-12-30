@@ -2,8 +2,8 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../css/grades.css">
+        <link rel="stylesheet" type="text/css" href="public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="public/css/grades.css">
         <script src="https://kit.fontawesome.com/e81504632c.js" crossorigin="anonymous"></script>
         <title>Grades</title>
     </head>
