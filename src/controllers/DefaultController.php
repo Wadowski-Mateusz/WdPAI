@@ -13,4 +13,9 @@ class DefaultController extends AppController {
     {
         $this->render('grades');
     }
+
+    public function plan()
+    {
+        $this->render('plan');
+    }
 }
