@@ -1,18 +1,64 @@
 .base-container{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     height: 100vh;
+    width: 100vw;
+    background: linear-gradient(180deg, #6EADC1 65.62%, rgba(134, 166, 176, 0.15) 100%) no-repeat fixed center;
+    background-size: cover;
 }
 
 main {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(180deg, #6EADC1 65.62%, rgba(134, 166, 176, 0.15) 100%);
+    justify-content: center;
+    height: 70vh;
+    width: 70vw;
+
+    /* Create the parallax scrolling effect */
+    background: linear-gradient(180deg, #5A92A4 0%, rgba(10, 124, 22, 0) 92.22%) no-repeat fixed center;
+    background-size: cover;
 }
 
-body{ /*inaczej jest biała ramka*/
+body{
     margin: 0;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    /*height: 80vh;*/
+    /*width: 80vw;*/
+    /*background: linear-gradient(180deg, #5A92A4 0%, rgba(201, 224, 232, 0) 102.22%);*/
+
+}
+
+.user-info {
+    padding: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-detail {
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name, .birthday, .email, .phone, .school {
+    padding: 1vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #FFFFFF;
 }
