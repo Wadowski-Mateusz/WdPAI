@@ -11,6 +11,21 @@ class UserController extends AppController {
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private array $message = [];
+    private UserRepository $userRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->userRepository = new UserRepository();
+    }
+
+
+    public function user(){
+        // TODO szukanie usera po id, obecnie jest id przekazywane na sztywno
+        $userDetail = $this -> userRepository -> getUserDetail(1);
+        $this -> render('user', ['detail' => $userDetail]);
+//        $this->render('user', $user);
+    }
 
     public function addUser()
     {

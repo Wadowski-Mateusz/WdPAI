@@ -35,11 +35,6 @@ class DefaultController extends AppController {
         $this->render('plan');
     }
 
-    public function user()
-    {
-        $this->render('user');
-    }
-
     ///??????
     public function panel_admin()
     {

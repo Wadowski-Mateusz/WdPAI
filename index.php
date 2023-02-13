@@ -12,11 +12,12 @@ Routing::get('attendance', 'DefaultController');
 Routing::get('remarks', 'DefaultController');
 Routing::get('messages', 'DefaultController');
 Routing::get('plan', 'DefaultController');
-Routing::get('user', 'DefaultController');
+
 
 Routing::post('login', 'SecurityController');
 
 Routing::post('addUser', 'UserController');
+Routing::get('user', 'UserController');
 
 //Routing::get('panel_admin', 'AdminController'); // każda rola z osobnym kontrolerem?
 //Routing::get('panel_director', 'DirectorController'); // ?

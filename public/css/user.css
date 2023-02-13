@@ -1,0 +1,18 @@
+.base-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(180deg, #6EADC1 65.62%, rgba(134, 166, 176, 0.15) 100%);
+}
+
+body{ /*inaczej jest biała ramka*/
+    margin: 0;
+}
