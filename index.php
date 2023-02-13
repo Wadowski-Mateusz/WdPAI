@@ -3,11 +3,23 @@
 require 'Routing.php';
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
-$path = parse_url( $path, PHP_URL_PATH);
+$path = parse_url($path, PHP_URL_PATH);
 
-Router::get('', 'DefaultController');
-Router::get('grades', 'DefaultController');
-Router::get('plan', 'DefaultController');
-Router::post('login', 'SecurityController');
+Routing::get('', 'DefaultController');
 
-Router::run($path);
+Routing::get('grades', 'DefaultController');
+Routing::get('attendance', 'DefaultController');
+Routing::get('remarks', 'DefaultController');
+Routing::get('messages', 'DefaultController');
+Routing::get('plan', 'DefaultController');
+Routing::get('user', 'DefaultController');
+
+Routing::post('login', 'SecurityController');
+
+Routing::post('addUser', 'UserController');
+
+//Routing::get('panel_admin', 'AdminController'); // każda rola z osobnym kontrolerem?
+//Routing::get('panel_director', 'DirectorController'); // ?
+//Routing::get('panel_teacher', "TeacherController"); //?
+
+Routing::run($path);

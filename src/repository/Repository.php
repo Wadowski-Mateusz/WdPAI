@@ -8,9 +8,8 @@ class Repository
 {
     protected $database;
 
-    public function __construct(){  // można przerobić na singleton
-        $this ->database = new Database();
+    public function __construct(){
+        $this -> database = new Database();
     }
-
 
 }

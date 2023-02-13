@@ -1,17 +1,21 @@
 <?php
-
+require_once 'config.php';
 class Database {
-    private $username;
-    private $password;
-    private $host;
-    private $database;
+    private string $username;
+    private string $password;
+    private string $host;
+    private string $database;
 
     public function __construct()
     {
+//        $this->username = USERNAME;
+//        $this->password = PASSWORD;
+//        $this->host = HOST;
+//        $this->database = DATABASE;
         $this->username = 'dbuser';
         $this->password = 'dbpwd';
         $this->host = 'db';
-        $this->database = 'dbname';
+        $this->database = 'postgres';
     }
 
     public function connect()

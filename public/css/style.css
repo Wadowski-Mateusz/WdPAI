@@ -40,7 +40,7 @@ button {
     font-size: 2em;
 }
 
-input {
+input, textarea {
     background: #C5D1D5;
     width: 20vw;
     height: 60vh;
@@ -79,6 +79,9 @@ input {
         height: 20em;
         margin: 2em;
     }
+
+
+
 
 }
 

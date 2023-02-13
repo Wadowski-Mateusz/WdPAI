@@ -1,3 +1,5 @@
 **/img/*
 .env
 .idea/
+config.php
+uploads/

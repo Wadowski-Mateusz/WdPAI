@@ -3,12 +3,13 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+
 class SecurityController extends AppController {
 
     public function login(){
-//        $userRepository = new UserRepository(); //razem z linią 20  $user = $userRepository->getUser(pesel);
+//        $user = new User('123', 'email', 'qwe','poka', 'hontas');
 
-        $user = new User('123', 'pokahontas', 'poka', 'hontas');
+        $userRepository = new UserRepository();
 
         if (!$this->isPost()) {
             return $this->render('login');
@@ -17,23 +18,23 @@ class SecurityController extends AppController {
         $pesel = $_POST['pesel'];
         $password = $_POST['password'];
 
-//        $user = $userRepository->getUser(pesel);
-//
-//        if (!$user) {
-//            return $this->render('login', ['messages' => ['User not found!']]);
-//        }
+        $user = $userRepository -> getUser($pesel);
+
+        if (!$user) {
+            return $this->render('login', ['messages' => ['User not found!']]);
+        }
 
         if($user->getPesel() !== $pesel) {
-            return $this->render('login', ['messages' => ['User with this pesel not exist!'.$pesel.'x'.$user->getPesel()]]);
+            return $this->render('login', ['messages' => ['User with this pesel not exist!'.$pesel.' : '.$user->getPesel()]]);
         }
 
         if($user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['Wrong password!'.$password.'x'.$user->getPassword()]]);
+            return $this->render('login', ['messages' => ['Wrong password!'.$password.' : '.$user->getPassword()]]);
         }
 
 
-        $url = "http://$_SERVER[HTTP_HOST]"; 
-        header("Location: {$url}/grades ");
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/grades");
 
 
     }
