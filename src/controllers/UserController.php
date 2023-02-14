@@ -29,7 +29,6 @@ class UserController extends AppController {
 
     public function addUser()
     {
-
         //TODO ogarnac spam na f5
 //        To display this page, Firefox must send information that will repeat any action (such as a search or order confirmation) that was performed earlier.
 
