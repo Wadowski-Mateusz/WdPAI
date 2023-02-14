@@ -22,7 +22,7 @@
                     <option value="teacher">Nauczyciel</option>
                     <option value="admin">Admin</option>
                 </select>
-
+                <? echo 'Jeszcze klasy do ktorych należy/ą użytkownicy'; ?>
                 <div class="avatar">
                     <input class="box" type="checkbox" name="isAvatar"/> <!--TODO avatar odblokowany po zaznaczeniu -->
                     Czy dodać avatar?

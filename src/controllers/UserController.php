@@ -29,6 +29,10 @@ class UserController extends AppController {
 
     public function addUser()
     {
+
+        //TODO ogarnac spam na f5
+//        To display this page, Firefox must send information that will repeat any action (such as a search or order confirmation) that was performed earlier.
+
         // TODO sprawdzić czy plik o podanej nazwie juz istnieje
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
             move_uploaded_file(
@@ -36,12 +40,14 @@ class UserController extends AppController {
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-            // TODO create new user object and save it in database
             $pesel = $_POST['pesel'];
             $email = 'userController.adduser()';
             $password = 'userController.adduser()';
+            //TODO zmienic to na usera i user detail
             $user = new User($pesel, $email, $password, $_POST['name'], $_POST['surname']/*, $_FILES['file']['name']*/);
-            echo 'Sukces, dodano >'.$_POST['name'].'< do niczego bo jeszcze nie dodaje do bazy';
+            $userDetail = new UserDetail('','','','','',20,'',);
+            echo 'Sukces, dodano >'.$_POST['name'].'< do bazy';
+            $this -> userRepository -> addUser($pesel, $userDetail);
             return $this->render('add-user', ['messages' => $this->message]);
         }
         return $this->render('add-user', ['messages' => $this->message]);
