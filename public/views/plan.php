@@ -4,6 +4,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="public/css/style.css">
         <link rel="stylesheet" type="text/css" href="public/css/plan.css">
+        <link rel="stylesheet" type="text/css" href="public/css/nav.css">
         <script src="https://kit.fontawesome.com/e81504632c.js" crossorigin="anonymous"></script>
         <title>Plan</title>
     </head>
@@ -13,30 +14,43 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#" class="button">Grades</a>
-                        <i class="fa-solid fa-book-open"></i>
+                        <a href="grades" class="button">
+                            Grades
+                            <i class="fa-solid fa-book-open"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="button">Attendance</a>
-                        <i class="fa-regular fa-calendar-check"></i>     
+                        <a href="attendance" class="button">
+                            Attendance
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="button">Remarks</a>
-                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <a href="remarks" class="button">
+                            Remarks
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="button">Messages</a>
-                        <i class="fa-solid fa-envelope"></i>
+                        <a href="messages" class="button">
+                            Messages
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="button">Plan</a>
-                        <i class="fa-solid fa-calendar-days"></i>
+                        <a href="plan" class="button">
+                            Plan
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="button">Student</a>
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <a href="user" class="button">
+                            User
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </a>
                     </li>
                     <li>
+                        <!-- <i class="fa-solid fa-ellipsis-vertical"></i> -->
                         <i class="fa-solid fa-ellipsis"></i>
                         <a href="#" class="button"></a>
                     </li>

@@ -2,8 +2,8 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="public/css/style.css">
         <link rel="stylesheet" type="text/css" href="public/css/grades.css">
+        <link rel="stylesheet" type="text/css" href="public/css/nav.css">
         <script src="https://kit.fontawesome.com/e81504632c.js" crossorigin="anonymous"></script>
         <title>Grades</title>
     </head>
@@ -13,34 +13,40 @@
             <nav>
                 <ul>
                     <li>
-                        <!-- <i class="fa-solid fa-book-open"></i> -->
-                        <a href="#" class="button">Grades</a>
-                        <i class="fa-solid fa-book-open"></i>
+                        <a href="grades" class="button">
+                            Grades
+                            <i class="fa-solid fa-book-open"></i>
+                        </a>
                     </li>
                     <li>
-                        <!-- <i class="fa-regular fa-calendar-check"></i>      -->
-                        <a href="#" class="button">Attendance</a>
-                        <i class="fa-regular fa-calendar-check"></i>     
+                        <a href="attendance" class="button">
+                            Attendance
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </a>
                     </li>
                     <li>
-                        <!-- <i class="fa-solid fa-circle-exclamation"></i> -->
-                        <a href="#" class="button">Remarks</a>
-                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <a href="remarks" class="button">
+                            Remarks
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        </a>
                     </li>
                     <li>
-                        <!-- <i class="fa-solid fa-envelope"></i> -->
-                        <a href="#" class="button">Messages</a>
-                        <i class="fa-solid fa-envelope"></i>
+                        <a href="messages" class="button">
+                            Messages
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
                     </li>
                     <li>
-                        <!-- <i class="fa-solid fa-calendar-days"></i> -->
-                        <a href="#" class="button">Plan</a>
-                        <i class="fa-solid fa-calendar-days"></i>
+                        <a href="plan" class="button">
+                            Plan
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </a>
                     </li>
                     <li>
-                        <!-- <i class="fa-solid fa-graduation-cap"></i> -->
-                        <a href="#" class="button">Student</a>
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <a href="user" class="button">
+                            User
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </a>
                     </li>
                     <li>
                         <!-- <i class="fa-solid fa-ellipsis-vertical"></i> -->
@@ -51,34 +57,121 @@
             </nav>
             <main>
                 <section class="grades">
-                    <div id="subject-1">
+                    <div class="subject">
                         <h2>Subject name</h2>
                         <div class="subject-grades">
-                            G
+                            <div class="grade"> 1 </div>
+                            <div class="grade"> 2 </div>
+                            <div class="grade"> 3 </div>
+                            <div class="grade"> 4 </div>
+                            <div class="grade"> 5 </div>
+                            <div class="grade"> 1- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                        </div>
+                        <div class="final-grade"> Średnia: 4.5</div>
+                        <div class="final-grade"> Ocena końcowa: 4.5</div>
+                    </div>
+                    <div class="subject">
+                        <h2>Subject name</h2>
+                        <div class="subject-grades">
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
+                            <div class="grade"> 5- </div>
                         </div>
                     </div>
-                    <div id="subject-2">
+                    <div class="subject">
                         <h2>Subject name</h2>
                         <div class="subject-grades">
-                            G
-                        </div>
-                    </div>
-                    <div id="subject-3">
-                        <h2>Subject name</h2>
-                        <div class="subject-grades">
-                            G
-                        </div>
-                    </div>
-                    <div id="subject-4">
-                        <h2>Subject name</h2>
-                        <div class="subject-grades">
-                            G
-                        </div>
-                    </div>
-                    <div id="subject-5">
-                        <h2>Subject name</h2>
-                        <div class="subject-grades">
-                            G
+                            Tutaj będą oceny
                         </div>
                     </div>
                 </section>
