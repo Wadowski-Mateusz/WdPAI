@@ -86,3 +86,10 @@ section.user-form {
 .box {
     width: 10%;
 }
+
+.no-valid {
+    border: 0.5em solid tomato;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.5em tomato;
+    outline: none;
+}

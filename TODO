@@ -9,6 +9,7 @@ Grades:
 Login:
 
 messages:
+<textarea name="description" rows=5 placeholder="description"></textarea>-->
 
 Plan:
 
@@ -22,3 +23,7 @@ Student:
 
 let now = new Date();
 document.querySelector("data") = now.getTime();
+
+addUser:
+imie i nazwisko aby zaczynało się wielką, miało same małe potem, a po - było znów wielką
+wrong data shouldnt be sended to db
