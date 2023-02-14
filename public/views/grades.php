@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="public/css/grades.css">
-        <link rel="stylesheet" type="text/css" href="public/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="/public/css/grades.css">
+        <link rel="stylesheet" type="text/css" href="/public/css/nav.css">
         <script src="https://kit.fontawesome.com/e81504632c.js" crossorigin="anonymous"></script>
-        <title>Grades</title>
+        <title>Diarium - Grades</title>
     </head>
 
     <body>
@@ -178,6 +177,3 @@
             </main>
         </div>
     </body>
-
-</html>
-

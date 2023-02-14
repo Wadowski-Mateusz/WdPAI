@@ -1,7 +1,10 @@
 Attandance:
 
 Grades:
-    fix no fixed menu when overflowed with grades/subjects
+    https://www.youtube.com/watch?v=TudqsSq653k
+    początek
+
+
 Login:
 
 messages:
@@ -11,4 +14,10 @@ Plan:
 Remarks:
 
 Student:
+    plik żeby nie miał przypadkiem nazwy z 30000 znaków
+    plik żeby nie zawierał sql injection
 
+
+
+let now = new Date();
+document.querySelector("data") = now.getTime();
