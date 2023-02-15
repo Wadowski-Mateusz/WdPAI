@@ -13,8 +13,8 @@ Routing::get('remarks', 'DefaultController');
 Routing::get('messages', 'DefaultController');
 Routing::get('plan', 'DefaultController');
 
-
 Routing::post('login', 'SecurityController');
+Routing::get('deleteCookies', 'SecurityController');
 
 Routing::get('user', 'UserController');
 Routing::post('addUser', 'UserController');

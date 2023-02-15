@@ -8,24 +8,35 @@ require_once __DIR__.'/../models/UserDetail.php';
 
 class UserRepository extends Repository
 {
-    public function getUser(string $pesel): ?User {
+    public function getUser(string $pesel, string $password): ?User {
 
         $stmt = $this->database->connect() -> prepare(
-            'SELECT * FROM public.users WHERE pesel = :pesel'
+            'SELECT * FROM (SELECT * FROM users WHERE password=:password) u WHERE pesel=:pesel;'
         );
 
-        $stmt->bindParam(':pesel', $pesel, PDO::PARAM_STR);
-        $stmt->execute();
-
+        $stmt -> bindParam(':pesel', $pesel, PDO::PARAM_STR);
+        $stmt -> bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt -> execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$user)
             return null;
 
+//        setcookie('userId', $user['id'], time()+300);
+
+        $stmt = $this->database->connect() -> prepare(
+            'SELECT name FROM roles WHERE id=:id;'
+        );
+        $stmt -> bindParam(':id', $user['id_role'], PDO::PARAM_STR);
+        $stmt -> execute();
+        $role = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        setcookie('userId', $user['id'], time()+300);
+        setcookie('userRole', $role['name'], time()+300);
+
         return new User(
             $user['pesel'],
             $user['password'],
-            $user['id_role'],
         );
     }
 
@@ -51,6 +62,19 @@ class UserRepository extends Repository
             $user['id_school'],
             $user['avatar_path']
         );
+    }
+
+    public function getSchool(): ?int{
+        $stmt = $this->database->connect() -> prepare(
+            'select id_school from details where id=(select id_detail from users where id = :id)'
+        );
+
+        $stmt->bindParam(':id', $_COOKIE['userId'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        $school = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $school['userId'];
     }
 
     public function addUser(User $user, UserDetail $userDetail): void {
@@ -86,7 +110,8 @@ class UserRepository extends Repository
             $id,
             1
         ]);
-
     }
+
+
 
 }

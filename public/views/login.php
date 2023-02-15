@@ -22,7 +22,6 @@
                     </div>
                     <input name="pesel" type="text" placeholder="pesel">
                     <input name="password" type="password" placeholder="password">
-                    <input name="rememberMe" type="checkbox" value="lsRememberMe" id="rememberMe">
                     <button type="submit">LOGIN</button>
                 </form>
             </div>

@@ -27,3 +27,7 @@ document.querySelector("data") = now.getTime();
 addUser:
 imie i nazwisko aby zaczynało się wielką, miało same małe potem, a po - było znów wielką
 wrong data shouldnt be sended to db
+
+usuwanie ciasteczek na wylogowanie
+
+refresh cookie

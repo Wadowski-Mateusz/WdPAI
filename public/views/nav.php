@@ -40,6 +40,18 @@
             </a>
         </li>
         <li>
+            <a href="addUser" class="button">
+                Add User
+                <i class="fa-sharp fa-solid fa-user-plus"></i>
+            </a>
+        </li>
+        <li>
+            <a href="login" class="button">
+                Logout
+                <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </li>
+        <li>
             <!-- <i class="fa-solid fa-ellipsis-vertical"></i> -->
             <i class="fa-solid fa-ellipsis"></i>
             <a href="#" class="button"></a>

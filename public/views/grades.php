@@ -7,7 +7,7 @@
 
     <body>
         <div class="base-container">
-            <?php include 'public/views/nav.html'; ?>
+            <?php include 'public/views/nav.php'; ?>
             <main>
                 <section class="grades">
                     <div class="subject">

@@ -16,23 +16,25 @@ class SecurityController extends AppController {
         $pesel = $_POST['pesel'];
         $password = $_POST['password'];
 
-        $user = $userRepository -> getUser($pesel);
+        $user = $userRepository -> getUser($pesel, $password);
 
-        if (!$user) {
+        if (!$user)
             return $this->render('login', ['messages' => ['User not found!']]);
-        }
-
-        if($user->getPesel() !== $pesel) {
-            return $this->render('login', ['messages' => ['User with this pesel not exist!']]);
-        }
-
-        if($user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['Wrong password!']]);
-        }
-
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/grades");
+    }
+
+    public function deleteCookies(){
+        //TODO poczarować tu i w html by działało
+        if (isset($_COOKIE['userId'])) {
+            unset($_COOKIE['userId']);
+            setcookie('userId', null, -1, '/');
+        }
+        if (isset($_COOKIE['userRole'])) {
+            unset($_COOKIE['userRole']);
+            setcookie('userRole', null, -1, '/');
+        }
     }
 
 }

@@ -14,22 +14,19 @@ class UserController extends AppController
     private array $message = [];
     private UserRepository $userRepository;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->userRepository = new UserRepository();
     }
 
-    public function user()
-    {
-        // TODO szukanie usera po id, obecnie jest id przekazywane na sztywno
-        $userDetail = $this->userRepository->getDetailOfUser(10);
+    public function user() {
+        $userDetail = $this->userRepository->getDetailOfUser($_COOKIE['userId']);
         $this->render('user', ['detail' => $userDetail]);
-//        $this->render('user', $user);
     }
 
     public function addUser() {
-
+        var_dump($_FILES['file']);
+        var_dump(strlen($_FILES['file']['tmp_name']));
         if (!$this->isPost()) {
             $this->message = ['TODO usun 49082198359'];
             return $this->render('add-user', ['messages' => $this->message]);
@@ -38,9 +35,9 @@ class UserController extends AppController
         $pesel = $_POST['pesel'];
         $file = $_FILES['file'];
 
-        if (!$this->validateFile($file))
-            return $this->render('add-user', ['messages' => $this->message]);
-
+        if(strlen($file['tmp_name']) > 0)
+            if (!$this->validateFile($file))
+                return $this->render('add-user', ['messages' => $this->message]);
         $avatarPath = $this->filename($file);
 
         move_uploaded_file(
@@ -51,8 +48,8 @@ class UserController extends AppController
         $birthday = $this -> peselToBirthday($pesel);
 
         // TODO id szkoły
-        $user = new User($pesel, $this->generatePassword($pesel), intval($_POST['Role']));
-        $userDetail = new UserDetail($birthday, '', $_POST['name'], $_POST['surname'], ' ', 1, $avatarPath);
+        $user = new User($pesel, $this->generatePassword($pesel));
+        $userDetail = new UserDetail($birthday, '', $_POST['name'], $_POST['surname'], '', 1, $avatarPath);
         $this->message['200'] = 'Sukces, dodano >' . $_POST['name'] . ' ' . $_POST['surname'] . ' ' . $_POST['pesel'] . '< do bazy';
         $this -> userRepository -> addUser($user, $userDetail);
         return $this->render('add-user', ['messages' => $this->message]);
@@ -79,7 +76,7 @@ class UserController extends AppController
     }
 
     private function filename(array $file): string {
-        if ($file == null)
+        if (strlen($file['tmp_name']) == 0)
             return (intval($_POST['pesel'][9]) % 2) ? 'default_man.png' : 'default_woman.png';
         return md5($_POST['pesel']).'.'.pathinfo($file['name'], PATHINFO_EXTENSION);
     }

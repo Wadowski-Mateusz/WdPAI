@@ -11,7 +11,7 @@
 
     <body>
     <div class="base-container">
-        <?php include 'public/views/nav.html'; ?>
+        <?php include 'public/views/nav.php'; ?>
         <main>
             Dodawanie użytkownika
             <section class="user-form">
