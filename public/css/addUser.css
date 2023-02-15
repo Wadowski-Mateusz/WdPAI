@@ -26,6 +26,12 @@ main {
     line-height: 4em;
 }
 
+.messages {
+    color: darkred;
+    line-height: 1.75em;
+    font-size: 1.5em;
+}
+
 button {
     padding: 0;
     border: none;
@@ -93,3 +99,4 @@ section.user-form {
     box-shadow: 0 0 0.5em tomato;
     outline: none;
 }
+

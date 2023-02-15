@@ -16,8 +16,8 @@ Routing::get('plan', 'DefaultController');
 
 Routing::post('login', 'SecurityController');
 
-Routing::post('addUser', 'UserController');
 Routing::get('user', 'UserController');
+Routing::post('addUser', 'UserController');
 
 //Routing::get('panel_admin', 'AdminController'); // każda rola z osobnym kontrolerem?
 //Routing::get('panel_director', 'DirectorController'); // ?

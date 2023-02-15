@@ -21,62 +21,39 @@ class UserDetail {
         $this->avatar_path = $avatarPath;
     }
 
-    /**
-     * @return string
-     */
     public function getBirthday(): string
     {
         return $this->birthday;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getSurname(): string
     {
         return $this->surname;
     }
 
-    /**
-     * @return string
-     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
 
-    /**
-     * @return int
-     */
     public function getIdSchool(): int
     {
         return $this->idSchool;
     }
 
-    /**
-     * @return string
-     */
     public function getAvatarPath(): string
     {
         return $this->avatar_path;
     }
-
-
 
 }

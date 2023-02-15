@@ -8,8 +8,7 @@ require_once __DIR__.'/../models/UserDetail.php';
 
 class UserRepository extends Repository
 {
-    public function getUser(string $pesel): ?User
-    {
+    public function getUser(string $pesel): ?User {
 
         $stmt = $this->database->connect() -> prepare(
             'SELECT * FROM public.users WHERE pesel = :pesel'
@@ -26,12 +25,13 @@ class UserRepository extends Repository
         return new User(
             $user['pesel'],
             $user['password'],
+            $user['id_role'],
         );
     }
 
-    public function getUserDetail(int $id): ?UserDetail{
+    public function getDetailOfUser(int $id): ?UserDetail{
         $stmt = $this->database->connect() -> prepare(
-            'SELECT  * FROM public.detail where id = (SELECT id_detail FROM public.users WHERE id = :id)'
+            'SELECT  * FROM public.details where id = (SELECT id_detail FROM public.users WHERE id = :id)'
         );
 
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -53,39 +53,24 @@ class UserRepository extends Repository
         );
     }
 
-    public function addUser(int $pesel, UserDetail $userDetail): void {
+    public function addUser(User $user, UserDetail $userDetail): void {
 //        TODO uzupełnić o szkołę, klasę, role... może jeszcze cos o czym zapomnialem
 
-        # urodziny na podstawie peselu
-        # email null
-        # name
-        # surname
-        # phone null
-        # id_school TODO
-        # picture_path
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO details (email, name, surname, phone_number, id_school, picture_path)
-            VALUES (?, ?, ?, ?, ?, ?) RETURNING id
+            INSERT INTO details (birthday, email, name, surname, phone_number, id_school, avatar_path)
+            VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id
         ');
 
         $stmt->execute([
-            '$usil()',
-            '$usName()',
-            '$usme()',
-            '$ushone()',
-            12,
-            '$usath()'
+            $userDetail -> getBirthday(),
+//            date("Y/m/d"),
+            null,
+            $userDetail -> getName(),
+            $userDetail -> getSurname(),
+            null,
+            $userDetail -> getIdSchool(),
+            $userDetail -> getAvatarPath()
         ]);
-
-//        $stmt->execute([
-//            $userDetail->getBirthday(), // TODO string na date date->format('Y-m-d')
-//            $userDetail->getEmail(),
-//            $userDetail->getName(),
-//            $userDetail->getSurname(),
-//            $userDetail->getPhone(),
-//            $userDetail->getIdSchool(),
-//            $userDetail->getAvatarPath()
-//        ]);
 
         $id = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
 
@@ -96,9 +81,9 @@ class UserRepository extends Repository
         ');
 
         $stmt->execute([
-            $pesel,
-            'todopasspwd',
-            10,
+            $user -> getPesel(),
+            $user -> getPassword(),
+            $id,
             1
         ]);
 

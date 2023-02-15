@@ -4,9 +4,10 @@ require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
 
-class UserController extends AppController {
+class UserController extends AppController
+{
 
-    const MAX_FILE_SIZE = 1024*1024;
+    const MAX_FILE_SIZE = 1024 * 2048;
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
@@ -19,41 +20,46 @@ class UserController extends AppController {
         $this->userRepository = new UserRepository();
     }
 
-
-    public function user(){
+    public function user()
+    {
         // TODO szukanie usera po id, obecnie jest id przekazywane na sztywno
-        $userDetail = $this -> userRepository -> getUserDetail(1);
-        $this -> render('user', ['detail' => $userDetail]);
+        $userDetail = $this->userRepository->getDetailOfUser(10);
+        $this->render('user', ['detail' => $userDetail]);
 //        $this->render('user', $user);
     }
 
-    public function addUser()
-    {
-        //TODO ogarnac spam na f5
-//        To display this page, Firefox must send information that will repeat any action (such as a search or order confirmation) that was performed earlier.
+    public function addUser() {
 
-        // TODO sprawdzić czy plik o podanej nazwie juz istnieje
-        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
-            move_uploaded_file(
-                $_FILES['file']['tmp_name'],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
-            );
-
-            $pesel = $_POST['pesel'];
-            $email = 'userController.adduser()';
-            $password = 'userController.adduser()';
-            //TODO zmienic to na usera i user detail
-            $user = new User($pesel, $email, $password, $_POST['name'], $_POST['surname']/*, $_FILES['file']['name']*/);
-            $userDetail = new UserDetail('','','','','',20,'',);
-            echo 'Sukces, dodano >'.$_POST['name'].'< do bazy';
-            $this -> userRepository -> addUser($pesel, $userDetail);
+        if (!$this->isPost()) {
+            $this->message = ['TODO usun 49082198359'];
             return $this->render('add-user', ['messages' => $this->message]);
         }
+
+        $pesel = $_POST['pesel'];
+        $file = $_FILES['file'];
+
+        if (!$this->validateFile($file))
+            return $this->render('add-user', ['messages' => $this->message]);
+
+        $avatarPath = $this->filename($file);
+
+        move_uploaded_file(
+            $file['tmp_name'],
+            dirname(__DIR__) . self::UPLOAD_DIRECTORY . $avatarPath
+        );
+
+        $birthday = $this -> peselToBirthday($pesel);
+
+        // TODO id szkoły
+        $user = new User($pesel, $this->generatePassword($pesel), intval($_POST['Role']));
+        $userDetail = new UserDetail($birthday, '', $_POST['name'], $_POST['surname'], ' ', 1, $avatarPath);
+        $this->message['200'] = 'Sukces, dodano >' . $_POST['name'] . ' ' . $_POST['surname'] . ' ' . $_POST['pesel'] . '< do bazy';
+        $this -> userRepository -> addUser($user, $userDetail);
         return $this->render('add-user', ['messages' => $this->message]);
     }
 
-    private function validate(array $file): bool
-    {
+    private function validateFile(array $file): bool {
+
         if ($file['size'] > self::MAX_FILE_SIZE) {
             $this->message[] = 'File is too large for destination file system.';
             return false;
@@ -63,7 +69,49 @@ class UserController extends AppController {
             $this->message[] = 'File type is not supported.';
             return false;
         }
+
+        if (!is_uploaded_file($_FILES['file']['tmp_name'])) {
+            $this->message[] = 'Bad file.';
+            return false;
+        }
+
         return true;
     }
 
+    private function filename(array $file): string {
+        if ($file == null)
+            return (intval($_POST['pesel'][9]) % 2) ? 'default_man.png' : 'default_woman.png';
+        return md5($_POST['pesel']).'.'.pathinfo($file['name'], PATHINFO_EXTENSION);
+    }
+
+    private function generatePassword(string $pesel) {
+        return md5(substr(md5($pesel), 0, 12));
+    }
+
+    private function peselToBirthday($pesel): string {
+
+        switch ($pesel[3]) {
+            case '8':
+                return '18'.substr($pesel,0,2).'-0'.$pesel[4].'-'.substr($pesel,4,2);
+            case '9':
+                return '18'.substr($pesel,0,2).'-1'.$pesel[4].'-'.substr($pesel,4,2);
+            case '0':
+                return '19'.substr($pesel,0,2).'-0'.$pesel[4].'-'.substr($pesel,4,2);
+            case '1':
+                return '19'.substr($pesel,0,2).'-1'.$pesel[4].'-'.substr($pesel,4,2);
+            case '2':
+                return '20'.substr($pesel,0,2).'-0'.$pesel[4].'-'.substr($pesel,4,2);
+            case '3':
+                return '20'.substr($pesel,0,2).'-1'.$pesel[4].'-'.substr($pesel,4,2);
+            case '4':
+                return '21'.substr($pesel,0,2).'-0'.$pesel[4].'-'.substr($pesel,4,2);
+            case '5':
+                return '21'.substr($pesel,0,2).'-1'.$pesel[4].'-'.substr($pesel,4,2);
+            case '6':
+                return '22'.substr($pesel,0,2).'-0'.$pesel[4].'-'.substr($pesel,4,2);
+            case '7':
+                return '22'.substr($pesel,0,2).'-1'.$pesel[4].'-'.substr($pesel,4,2);
+        }
+        return '';
+    }
 }
