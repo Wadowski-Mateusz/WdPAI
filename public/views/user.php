@@ -3,7 +3,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/user.css">
     <link rel="shortcut icon" href="/public/img/logo.svg">
-
     <title> Diarium - user </title>
 </head>
 
@@ -12,25 +11,29 @@
         <?php include 'public/views/nav.php'; ?>
         <main>
             <section class="user-info">
-    <!--                --><?php //=var_dump($detail)?>
                 <img src="public/uploads/<?= $detail->getAvatarPath(); ?>">
                 <div class="user-detail">
-    <!--                TODO PESEL  + nazwa szkoły wraz z adresem + rozmiar obrazka-->
-                    <div class="name">
+                    <div class="info">
                         <?= $detail->getName();?>
                         <?= $detail->getSurname();?>
-                    </div>
-
-                    <div class="birthday"> <?= $detail->getBirthday();?> </div>
-
-                    <div class="email">
-                        <?= $detail->getEmail();?>
-                    </div>
-                    <div class="phone">
-                        <?= $detail->getPhoneNumber();?>
-                    </div>
-                    <div class="school">
-                        <?= $detail->getIdSchool();?>
+                        <br>
+                        <?= $detail->getBirthday();?>
+                        <br>
+                        <?php
+                            if($detail->getEmail() != "")
+                                echo $detail->getEmail();
+                                echo '<br>';
+                            if($detail->getPhoneNumber() != "")
+                                echo $detail->getPhoneNumber();
+                                echo '<br>';
+                            ?>
+                        <?php
+                            require_once __DIR__.'/../../src/controllers/SchoolController.php';
+                            $school = (new SchoolController())->getSchool($detail->getIdSchool());
+                            echo $school -> getName();
+                            echo '<br>';
+                            echo $school -> getAddress();
+                        ?>
                     </div>
                 </div>
             </section>

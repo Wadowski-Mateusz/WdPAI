@@ -19,6 +19,9 @@ Routing::get('deleteCookies', 'SecurityController');
 Routing::get('user', 'UserController');
 Routing::post('addUser', 'UserController');
 
+Routing::post("addSchool", 'SchoolController');
+Routing::get("getSchool", 'SchoolController');
+
 //Routing::get('panel_admin', 'AdminController'); // każda rola z osobnym kontrolerem?
 //Routing::get('panel_director', 'DirectorController'); // ?
 //Routing::get('panel_teacher', "TeacherController"); //?

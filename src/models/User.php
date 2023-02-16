@@ -1,6 +1,6 @@
 <?php
 
-class User{
+class User {
     private string $pesel;
     private string $password;
 

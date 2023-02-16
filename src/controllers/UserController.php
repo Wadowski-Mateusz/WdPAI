@@ -3,9 +3,9 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+//require_once __DIR__.'/../controllers/SchoolController.php';
 
-class UserController extends AppController
-{
+class UserController extends AppController {
 
     const MAX_FILE_SIZE = 1024 * 2048;
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
@@ -13,6 +13,7 @@ class UserController extends AppController
 
     private array $message = [];
     private UserRepository $userRepository;
+//    private SchoolController $schoolController;
 
     public function __construct() {
         parent::__construct();
@@ -21,12 +22,11 @@ class UserController extends AppController
 
     public function user() {
         $userDetail = $this->userRepository->getDetailOfUser($_COOKIE['userId']);
+        $schoolController = new SchoolController();
         $this->render('user', ['detail' => $userDetail]);
     }
 
     public function addUser() {
-        var_dump($_FILES['file']);
-        var_dump(strlen($_FILES['file']['tmp_name']));
         if (!$this->isPost()) {
             $this->message = ['TODO usun 49082198359'];
             return $this->render('add-user', ['messages' => $this->message]);

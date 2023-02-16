@@ -5,7 +5,7 @@
 
 <nav>
     <ul>
-        <?php if ($_COOKIE['userRole']!=="admin" ) {
+        <?php if ($_COOKIE['userRole']!=="") {
             echo '
         <li>
             <a href="grades" class="button">
@@ -15,6 +15,20 @@
         </li>
         ';}
         ?>
+
+        <?php if ($_COOKIE['userRole']!== "") {
+            echo '
+                <li>
+                    <a href="addGrade" class="button">
+                        Add Grade
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                    </a>
+                </li>
+            ';
+        }
+
+        ?>
+
 
 <!--        <li>-->
 <!--            <a href="attendance" class="button">-->

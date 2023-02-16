@@ -4,6 +4,7 @@
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/UserDetail.php';
+require_once __DIR__.'/../models/User.php';
 
 
 class UserRepository extends Repository {
@@ -72,7 +73,7 @@ class UserRepository extends Repository {
         );
     }
 
-    public function getSchool(): ?int{
+    public function getUserSchoolId(): ?int{
         $stmt = $this->database->connect() -> prepare(
             'select id_school from details where id=(select id_detail from users where id = :id)'
         );
@@ -106,7 +107,6 @@ class UserRepository extends Repository {
 
         $id = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
 
-        # TODO losowanie hasła
         $stmt = $this->database->connect()->prepare('
             INSERT INTO users (pesel, password, id_detail, id_role)
             VALUES (?, ?, ?, ?)
@@ -116,7 +116,7 @@ class UserRepository extends Repository {
             $user -> getPesel(),
             $user -> getPassword(),
             $id,
-            1
+            1 //TODO ?
         ]);
     }
 

@@ -11,10 +11,10 @@ function isPeselCorrect(pesel){
     weights = [1,3,7,9,1,3,7,9,1,3]
     control_number = 0;
     for (let i = 0; i < 10; i++)
-        control_number += weights[i] * (parseInt(peselNumerical[i]) % 10);
+        control_number += (weights[i] * parseInt(peselNumerical[i])) % 10;
     control_number = 10 - control_number % 10;
 
-    return (control_number == parseInt(peselNumerical[10]));
+    return (control_number === parseInt(peselNumerical[10]));
 
 }
 

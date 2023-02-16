@@ -10,13 +10,18 @@ class UserDetail {
     private int $idSchool;
     private string $avatar_path;
 
-    public function __construct(string $birthday, string $email, string $name, string $surname, string $phoneNumber, int $idSchool, string $avatarPath)
+
+    /**
+     * @param $email string or null
+     * @param $phoneNumber string or null
+     */
+    public function __construct(string $birthday, $email, string $name, string $surname, $phoneNumber, int $idSchool, string $avatarPath)
     {
         $this->birthday = $birthday;
-        $this->email = $email;
+        $this->email = ($email != null) ? $email : "";
         $this->name = $name;
         $this->surname = $surname;
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber = ($phoneNumber != null) ? $phoneNumber : "";
         $this->idSchool = $idSchool;
         $this->avatar_path = $avatarPath;
     }

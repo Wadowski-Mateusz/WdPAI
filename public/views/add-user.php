@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/public/css/addUser.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/adding.css">
 
     <link rel="shortcut icon" href="/public/img/logo.svg">
 
-    <script type="text/javascript" src="/public/js/registerValidate.js" defer><</script>
-    <title> Diarium </title>
+    <script type="text/javascript" src="/public/js/registerValidate.js" defer></script>
+    <title> Diarium - add user</title>
 </head>
 
     <body>
@@ -25,6 +25,7 @@
                         }
                         ?>
                     </div>
+
                     <input name="name" type="text" placeholder="imie">
                     <input name="surname" type="text" placeholder="nazwisko">
                     <input name="pesel" type="text" placeholder="PESEL">
@@ -37,7 +38,7 @@
                     </select>
                     <? echo 'Jeszcze klasy do ktorych należy/ą użytkownicy'; ?>
                     <input class="fileButton" type="file" name="file"/>
-                    <button type="submit">send</button>
+                    <button type="submit">DODAJ</button>
                 </form>
             </section>
         </main>
