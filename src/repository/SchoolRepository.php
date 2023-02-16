@@ -31,6 +31,3 @@ class SchoolRepository extends Repository {
     }
 
 }
-
-
-

@@ -24,6 +24,8 @@ Routing::get("getSchool", 'SchoolController');
 
 Routing::post("addClass", 'ClassController');
 
+Routing::post("addSubject", 'SubjectController');
+
 //Routing::get('panel_admin', 'AdminController'); // każda rola z osobnym kontrolerem?
 //Routing::get('panel_director', 'DirectorController'); // ?
 //Routing::get('panel_teacher', "TeacherController"); //?
