@@ -6,6 +6,7 @@ require_once 'src/controllers/UserController.php';
 require_once 'src/controllers/SchoolController.php';
 require_once 'src/controllers/ClassController.php';
 require_once 'src/controllers/SubjectController.php';
+require_once 'src/controllers/GradeController.php';
 
 class Routing {
 

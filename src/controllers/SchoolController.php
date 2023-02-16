@@ -21,7 +21,7 @@ class SchoolController extends AppController {
     public function addSchool() {
 
         if (!$this->isPost())
-            return $this->render('add-School');
+            return $this->render('add-school');
 
         $name = $_POST['name'];
         $address = $_POST['address'];
