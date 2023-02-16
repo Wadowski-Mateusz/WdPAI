@@ -99,6 +99,12 @@
         ?>
 
         <li>
+            <a href="addSubject" class="button">
+                Add Subject
+            </a>
+        </li>
+
+        <li>
             <a href="login" class="button">
                 Logout
                 <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
