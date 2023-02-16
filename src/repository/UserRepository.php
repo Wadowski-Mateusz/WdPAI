@@ -6,23 +6,25 @@ require_once 'Repository.php';
 require_once __DIR__.'/../models/UserDetail.php';
 
 
-class UserRepository extends Repository
-{
+class UserRepository extends Repository {
+
     public function getUser(string $pesel, string $password): ?User {
 
         $stmt = $this->database->connect() -> prepare(
             'SELECT * FROM (SELECT * FROM users WHERE password=:password) u WHERE pesel=:pesel;'
         );
-
         $stmt -> bindParam(':pesel', $pesel, PDO::PARAM_STR);
         $stmt -> bindParam(':password', $password, PDO::PARAM_STR);
         $stmt -> execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
         if (!$user)
             return null;
 
-//        setcookie('userId', $user['id'], time()+300);
+        // TODO make is_logged = false when logging out
+//        if($user['is_logged'])
+//            return null;
 
         $stmt = $this->database->connect() -> prepare(
             'SELECT name FROM roles WHERE id=:id;'
@@ -31,8 +33,14 @@ class UserRepository extends Repository
         $stmt -> execute();
         $role = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        setcookie('userId', $user['id'], time()+300);
-        setcookie('userRole', $role['name'], time()+300);
+        setcookie('userId', $user['id'], time()+6000);
+        setcookie('userRole', $role['name'], time()+6000);
+
+        $stmt = $this->database->connect() -> prepare(
+            'update users set is_logged=true where id=:id;'
+        );
+        $stmt -> bindParam(':id', $user['id'], PDO::PARAM_STR);
+        $stmt -> execute();
 
         return new User(
             $user['pesel'],

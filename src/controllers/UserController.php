@@ -47,7 +47,6 @@ class UserController extends AppController
 
         $birthday = $this -> peselToBirthday($pesel);
 
-        // TODO id szkoły
         $user = new User($pesel, $this->generatePassword($pesel));
         $userDetail = new UserDetail($birthday, '', $_POST['name'], $_POST['surname'], '', 1, $avatarPath);
         $this->message['200'] = 'Sukces, dodano >' . $_POST['name'] . ' ' . $_POST['surname'] . ' ' . $_POST['pesel'] . '< do bazy';

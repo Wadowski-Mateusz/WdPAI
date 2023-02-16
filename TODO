@@ -1,33 +1,75 @@
-Attandance:
+Zabezpieczenie przed wchodzeniem przez url bez zalogowania
 
 Grades:
     https://www.youtube.com/watch?v=TudqsSq653k
     początek
     dodać ikonę do nazwy karty
 
-
-Login:
-
-messages:
-<textarea name="description" rows=5 placeholder="description"></textarea>-->
+Login/adduser:
+    haszowanie
+    sprawdzanie roli przy dodawaniu
 
 Plan:
 
 Remarks:
-
-Student:
-    plik żeby nie miał przypadkiem nazwy z 30000 znaków
-    plik żeby nie zawierał sql injection
-
-
-
-let now = new Date();
-document.querySelector("data") = now.getTime();
+    let now = new Date();
+    document.querySelector("data") = now.getTime();
 
 addUser:
-imie i nazwisko aby zaczynało się wielką, miało same małe potem, a po - było znów wielką
-wrong data shouldnt be sended to db
+    imie i nazwisko aby zaczynało się wielką, miało same małe potem, a po - było znów wielką
 
-usuwanie ciasteczek na wylogowanie
+COOKIE:
+    usuwanie ciasteczek na wylogowanie
+    refresh cookie
+    https://stackoverflow.com/questions/25424033/how-to-extend-cookie-expiration-time-for-the-users
 
-refresh cookie
+
+1. DOKUMENTACJE W README.MD
+
+3. DIAGRAM ERD
+    Proszę wygenerować diagram ERD lub dodać zaprojektowany w zewnętrznej aplikacji. ERD w formacie .pdf powinno znaleźć się w katalogu głównym na repozytorium projektu.
+
+6. HTML
+    Widoki umieszczone są w szablonach, brak powtarzalności kodu. Stosowanie np.
+    <?php include('footer.php') ?>,
+    aby wydzielić powtarzające się elementy w widokach.
+
+8. ZŁOŻONOŚĆ BAZY DANYCH
+    W bazie nie może występować anomalia modyfikacji i usunięć.
+
+10. JAVA SCRIPT
+    Zastosowanie języka Javascript w utworzeniu walidacji formularzy, zapytań Fetch API, a także do tworzenia, pobierania oraz manipulowania elementami DOM.
+
+11. FETCH API (AJAX)
+    Zastosowanie Fetch API z użyciem metody POST oraz GET. Przetworzenie otrzymanych danych z serwera w blokach then().
+
+13. RESPONSYWNOŚĆ
+    Zaprezentowanie co najmniej 5 widoków responsywnych, działających pod różne urządzanie wybrane z Narzędzi Deweloperskich przeglądarki. Zastosowanie CSS media queries.
+
+14. LOGOWANIE
+    Proces logowania użytkowników w oparciu o bazę danych, zastosowanie odpowiedniego mapowania i weryfikacji.
+
+15. SESJA UŻYTKOWNIKA
+    Utrzymanie sesji (w oparciu o cookies i bazę danych).
+
+16. UPRAWNIENIA UŻYTKOWNIKÓW
+    Uprawnienia użytkowników powinny być weryfikowane przez system w trakcie działania aplikacji.
+
+17. ROLE UŻYTKOWNIKÓW
+    Aplikacja posiada przypisane role dla użytkowników - co najmniej dwa typy ról.
+
+18. WYLOGOWYWANIE
+    Usunięcie sesji/ ciasteczka przy wylogowaniu użytkownika oraz zaktualizowanie bazy danych.
+
+19. WIDOKI, WYZWALACZ/ FUNKCJE, TRANSAKCJE NA BAZIE DANYCH
+    W aplikacji użyto zapytań do utworzonych widoków na bazie danych lub zastosowano wyzwalacz, funkcje lub transakcje (co najmniej jedno zastosowanie z czterech wymienionych daje pełny punkt).
+
+20. AKCJE NA REFERENCJACH
+    W zapytaniach stosowane są JOINY, odwołujemy się do relacyjnych tabel.
+
+21. BEZPIECZEŃSTWO
+    Hasła są hashowane, dostęp do zawartości dla zalogowanych użytkowników nie jest osiągalny bez autoryzacji.
+
+*24. BAZA DANYCH ZRZUCONA DO PLIKU .SQL
+
+Należy pobrać kopię bazy danych wyeksportowaną do pliku .sql, który należy umieścić w repozytorium. Plik .sql powinien zawierać polecenia umożliwiających tworzenie bazy danych oraz zawierający INSERTY z przykładowymi danymi.
