@@ -31,7 +31,7 @@ class ClassController extends AppController {
 
         $class = new ClassInSchool(null, $name, $schoolId);
 
-        if ($this->classRepository->isInBase($class)) {
+        if (!$this->classRepository->isInBase($class)) {
             $this->classRepository->addClass($class);
             $this->message = ['Dodano klasę.'];
         }

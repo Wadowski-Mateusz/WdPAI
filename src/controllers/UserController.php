@@ -31,6 +31,12 @@ class UserController extends AppController {
         }
 
         $pesel = $_POST['pesel'];
+
+        if($this->userRepository->isInBase($pesel)){
+            $this->message = ['Użytkownik o podanym numerze PESEL znajduję się w bazie!'];
+            return $this->render('add-user', ['messages' => $this->message]);
+        }
+
         $file = $_FILES['file'];
 
         if(strlen($file['tmp_name']) > 0)
@@ -47,7 +53,7 @@ class UserController extends AppController {
 
         $user = new User($pesel, $this->generatePassword($pesel));
         $userDetail = new UserDetail($birthday, '', $_POST['name'], $_POST['surname'], '', 1, $avatarPath);
-        $this->message['200'] = 'Sukces, dodano >' . $_POST['name'] . ' ' . $_POST['surname'] . ' ' . $_POST['pesel'] . '< do bazy';
+        $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
         $this -> userRepository -> addUser($user, $userDetail);
         return $this->render('add-user', ['messages' => $this->message]);
     }

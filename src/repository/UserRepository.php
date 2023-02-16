@@ -123,5 +123,18 @@ class UserRepository extends Repository {
     }
 
 
+    public function isInBase(int $pesel) : bool{
+
+        $stmt = $this->database->connect()->prepare('
+            select * from users where pesel=:pesel  
+        ');
+
+        $stmt->bindParam(':pesel', $pesel, PDO::PARAM_STR);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return !(!$user);
+    }
+
 
 }

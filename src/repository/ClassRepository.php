@@ -32,7 +32,7 @@ class ClassRepository extends Repository {
 
         $class = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return !$class;
+        return !(!$class);
     }
 
 }
