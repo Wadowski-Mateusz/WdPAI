@@ -74,6 +74,7 @@ class UserRepository extends Repository {
     }
 
     public function getUserSchoolId(): ?int{
+
         $stmt = $this->database->connect() -> prepare(
             'select id_school from details where id=(select id_detail from users where id = :id)'
         );
@@ -81,9 +82,10 @@ class UserRepository extends Repository {
         $stmt->bindParam(':id', $_COOKIE['userId'], PDO::PARAM_INT);
         $stmt->execute();
 
+
         $school = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $school['userId'];
+        return $school['id_school'];
     }
 
     public function addUser(User $user, UserDetail $userDetail): void {

@@ -30,6 +30,7 @@ class SchoolRepository extends Repository {
         return new School($school['address'], $school['name']);
     }
 
+
 }
 
 

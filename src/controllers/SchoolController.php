@@ -14,11 +14,6 @@ class SchoolController extends AppController {
         $this->schoolRepository = new SchoolRepository();
     }
 
-//    public function school() {
-//        $school = $this->schoolRepository->getSchool($_COOKIE['userId']);
-//        $this->render('user', ['school' => $school]);
-//    }
-
     public function getSchool(int $schoolId) : School {
         return $this->schoolRepository->getSchool($schoolId);
     }

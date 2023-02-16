@@ -3,7 +3,6 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
-//require_once __DIR__.'/../controllers/SchoolController.php';
 
 class UserController extends AppController {
 
@@ -13,7 +12,6 @@ class UserController extends AppController {
 
     private array $message = [];
     private UserRepository $userRepository;
-//    private SchoolController $schoolController;
 
     public function __construct() {
         parent::__construct();
