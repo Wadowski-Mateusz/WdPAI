@@ -23,25 +23,26 @@ class UserRepository extends Repository {
         if (!$user)
             return null;
 
-        // TODO make is_logged = false when logging out
-//        if($user['is_logged'])
-//            return null;
+        if($user['is_logged'])
+            return null;
 
-        $stmt = $this->database->connect() -> prepare(
-            'SELECT name FROM roles WHERE id=:id;'
-        );
-        $stmt -> bindParam(':id', $user['id_role'], PDO::PARAM_STR);
-        $stmt -> execute();
-        $role = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->login($user['id'], $user['id_role']);
 
-        setcookie('userId', $user['id'], time()+6000);
-        setcookie('userRole', $role['name'], time()+6000);
-
-        $stmt = $this->database->connect() -> prepare(
-            'update users set is_logged=true where id=:id;'
-        );
-        $stmt -> bindParam(':id', $user['id'], PDO::PARAM_STR);
-        $stmt -> execute();
+//        $stmt = $this->database->connect() -> prepare(
+//            'SELECT name FROM roles WHERE id=:id;'
+//        );
+//        $stmt -> bindParam(':id', $user['id_role'], PDO::PARAM_STR);
+//        $stmt -> execute();
+//        $role = $stmt->fetch(PDO::FETCH_ASSOC);
+//
+//        setcookie('userId', $user['id'], time()+6000);
+//        setcookie('userRole', $role['name'], time()+6000);
+//
+//        $stmt = $this->database->connect() -> prepare(
+//            'update users set is_logged=true where id=:id;'
+//        );
+//        $stmt -> bindParam(':id', $user['id'], PDO::PARAM_STR);
+//        $stmt -> execute();
 
         return new User(
             $user['pesel'],
@@ -133,9 +134,9 @@ class UserRepository extends Repository {
 
     public function isInBase(int $pesel) : bool{
 
-        $stmt = $this->database->connect()->prepare('
-            select * from users where pesel=:pesel  
-        ');
+        $stmt = $this->database->connect()->prepare(
+            'select * from users where pesel=:pesel'
+        );
 
         $stmt->bindParam(':pesel', $pesel, PDO::PARAM_STR);
         $stmt->execute();
@@ -144,11 +145,30 @@ class UserRepository extends Repository {
         return !(!$user);
     }
 
+    public function logout() {
+        $stmt = $this->database->connect()->prepare(
+            'UPDATE users SET is_logged = FALSE WHERE id=:id'
+        );
+        $stmt->bindParam(':id', $_COOKIE['userId'], PDO::PARAM_INT);
+        $stmt->execute();
+    }
 
-//    public function getTeachersFromSchool(int $schoolId) : ?array{
-//
-//
-//        return null;
-//    }
+    private function login(int $userId, int $roleId) {
+        $stmt = $this->database->connect() -> prepare(
+            'SELECT name FROM roles WHERE id=:roleId;'
+        );
+        $stmt -> bindParam(':roleId', $roleId, PDO::PARAM_INT);
+        $stmt -> execute();
+        $role = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        setcookie('userId', $userId, time()+3600);
+        setcookie('userRole', $role['name'], time()+3600);
+
+        $stmt = $this->database->connect() -> prepare(
+            'update users set is_logged=true where id=:id;'
+        );
+        $stmt -> bindParam(':id', $userId, PDO::PARAM_INT);
+        $stmt -> execute();
+    }
 
 }

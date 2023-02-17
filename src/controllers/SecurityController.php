@@ -22,11 +22,12 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['User not found!']]);
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/grades");
+        header("Location: {$url}/addUser");
     }
 
     public function deleteCookies(){
-        //TODO poczarować tu i w html by działało
+        (new UserRepository()) -> logout();
+
         if (isset($_COOKIE['userId'])) {
             unset($_COOKIE['userId']);
             setcookie('userId', null, -1, '/');
@@ -35,6 +36,9 @@ class SecurityController extends AppController {
             unset($_COOKIE['userRole']);
             setcookie('userRole', null, -1, '/');
         }
+
+        http_response_code(200);
+        $this->render('login');
     }
 
 }

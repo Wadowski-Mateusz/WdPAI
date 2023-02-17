@@ -19,9 +19,9 @@
         <section class="classes">
             <?php foreach ($classes as $class) : ?>
             <div class="class">
+                <div id="<?=$class->getId()?>">
                <my-tag> <?=$class->getName()?> </my-tag>
-<!--               <my-tag> --><?php //=$class->getName()?><!-- </my-tag>-->
-<!--               --><?php //=$class->getName()?>
+                </div>
             </div>
             <?php endforeach;?>
 
@@ -34,6 +34,8 @@
 
 <template id="class-template">
     <div class="class">
-        <my-tag> name </my-tag>
+        <div id="">
+            <my-tag> name </my-tag>
+        </div>
     </div>
 </template>

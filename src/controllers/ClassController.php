@@ -68,6 +68,6 @@ class ClassController extends AppController {
 
     public function studentsFromClass(int $classId, string $searchFor){
         // TODO
-    }
+     }
 
 }

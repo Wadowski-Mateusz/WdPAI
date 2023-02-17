@@ -29,16 +29,11 @@ COOKIE:
 3. DIAGRAM ERD
     Proszę wygenerować diagram ERD lub dodać zaprojektowany w zewnętrznej aplikacji. ERD w formacie .pdf powinno znaleźć się w katalogu głównym na repozytorium projektu.
 
-6. HTML
-    Widoki umieszczone są w szablonach, brak powtarzalności kodu. Stosowanie np.
-    <?php include('footer.php') ?>,
-    aby wydzielić powtarzające się elementy w widokach.
-
 8. ZŁOŻONOŚĆ BAZY DANYCH
     W bazie nie może występować anomalia modyfikacji i usunięć.
 
 10. JAVA SCRIPT
-    Zastosowanie języka Javascript w utworzeniu walidacji formularzy, zapytań Fetch API, a także do tworzenia, pobierania oraz manipulowania elementami DOM.
+     Do tworzenia, pobierania oraz manipulowania elementami DOM.
 
 11. FETCH API (AJAX)
     Zastosowanie Fetch API z użyciem metody POST oraz GET. Przetworzenie otrzymanych danych z serwera w blokach then().
@@ -65,7 +60,7 @@ COOKIE:
     W aplikacji użyto zapytań do utworzonych widoków na bazie danych lub zastosowano wyzwalacz, funkcje lub transakcje (co najmniej jedno zastosowanie z czterech wymienionych daje pełny punkt).
 
 20. AKCJE NA REFERENCJACH
-    W zapytaniach stosowane są JOINY.   https://www.w3schools.com/sql/sql_join.asp
+    W zapytaniach stosowane są JOINY.
 
 21. BEZPIECZEŃSTWO
     Hasła są hashowane, dostęp do zawartości dla zalogowanych użytkowników nie jest osiągalny bez autoryzacji.

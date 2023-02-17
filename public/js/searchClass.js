@@ -33,8 +33,8 @@ function createClass(classObj) {
 
     const clone = template.content.cloneNode(true);
     // TODO co z tym?
-    // const div = clone.querySelector("div");
-    // div.id = classObj.id;
+    const div = clone.querySelector("div");
+    div.id = classObj.id;
 
     const name = clone.querySelector("my-tag");
     name.innerHTML = classObj.name;

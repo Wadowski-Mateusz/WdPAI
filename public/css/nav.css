@@ -49,7 +49,7 @@ button {
     font-size: 2em;
 }
 
-.button {
+.button, .logout-button {
     text-align: left;
     letter-spacing: 0.1em;
     color: black;

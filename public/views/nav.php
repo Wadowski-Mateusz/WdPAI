@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="/public/css/nav.css">
 <script src="https://kit.fontawesome.com/e81504632c.js" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="/public/js/logout.js" defer></script>
 <nav>
     <ul>
         <?php if ($_COOKIE['userRole']!=="") {
@@ -38,7 +38,7 @@
 <!--        </li>-->
 <!--        <li>-->
 <!--            <a href="#" class="button">-->
-<!--                Remarks-->
+<!--                 Remarks-->
 <!--                <i class="fa-solid fa-circle-exclamation"></i>-->
 <!--            </a>-->
 <!--        </li>-->
@@ -110,7 +110,8 @@
         </li>
 
         <li>
-            <a href="login" class="button">
+<!--            <a href="login" class="button">-->
+            <a href="deleteCookies" class="logout-button">
                 Logout
                 <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
             </a>
