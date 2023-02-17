@@ -10,7 +10,7 @@
 <div class="base-container">
     <?php include 'public/views/nav.php'; ?>
     <main>
-        Dodaj klasę
+        <div class="quick-info">Dodaj klasę</div>
         <section class="school-form">
             <form action="addClass" method="POST" ENCTYPE="multipart/form-data">
                 <div class="messages">

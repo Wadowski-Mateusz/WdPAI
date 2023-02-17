@@ -29,7 +29,7 @@ class ClassController extends AppController {
 
         $schoolId = (new UserRepository())->getUserSchoolId();
 
-        $class = new ClassInSchool(null, $name, $schoolId);
+        $class = new ClassInSchool(-1, null, $name, $schoolId);
 
         if (!$this->classRepository->isInBase($class)) {
             $this->classRepository->addClass($class);

@@ -10,8 +10,6 @@ class ClassRepository extends Repository {
         VALUES (?, ?, ?)
         ');
 
-
-
         $stmt->execute([
             $class -> getTutorId(),
             $class -> getName(),
@@ -34,5 +32,44 @@ class ClassRepository extends Repository {
 
         return !(!$class);
     }
+
+    public function getClassesFromSchool(int $schoolId){
+
+        //TODO jeśli możliwe, zamień na join
+
+        $stmt = $this->database->connect()->prepare(
+            'select * from classes where id_school=:schoolId;'
+        );
+        $stmt->bindParam(':schoolId', $schoolId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $result = [];
+        foreach ($classes as $class)
+            $result[] = new ClassInSchool($class['id'], $class['id_tutor'], $class['name'],$class['id_school']);
+
+        return $result;
+    }
+
+    public function getClassesForTeacher(int $teacherId){
+
+        //TODO jeśli możliwe, zamień na join
+
+        $stmt = $this->database->connect()->prepare(
+            'select * from classes where id in (select id_class from users_classes where id_user=:teacherId);'
+        );
+        $stmt->bindParam(':teacherId', $teacherId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $result = [];
+        foreach ($classes as $class)
+            $result[] = new ClassInSchool($class['id'], $class['id_tutor'], $class['name'],$class['id_school']);
+
+        return $result;
+    }
+
 
 }

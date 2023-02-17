@@ -30,6 +30,12 @@ class UserController extends AppController {
             return $this->render('add-user', ['messages' => $this->message]);
         }
 
+        //TODO zmień stałe id na wybraną szkołę
+//        if ((new SchoolRepository()) -> hasDirector(2) && $_POST['roles'] == 2) {
+//            $this->message = ['Szkoła ma już przypisanego dydektora'];
+//            return $this->render('add-user', ['messages' => $this->message]);
+//        }
+
         $pesel = $_POST['pesel'];
 
         if($this->userRepository->isInBase($pesel)){
@@ -55,6 +61,7 @@ class UserController extends AppController {
         $userDetail = new UserDetail($birthday, $_POST['name'], $_POST['surname'], 1, $avatarPath);
         $this -> userRepository -> addUser($user, $userDetail, $_POST['roles']);
         $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
+
         return $this->render('add-user', ['messages' => $this->message]);
     }
 

@@ -18,7 +18,8 @@ class SchoolController extends AppController {
         return $this->schoolRepository->getSchool($schoolId);
     }
 
-    public function addSchool() {
+    public function addSchool()
+    {
 
         if (!$this->isPost())
             return $this->render('add-school');
@@ -26,17 +27,24 @@ class SchoolController extends AppController {
         $name = $_POST['name'];
         $address = $_POST['address'];
 
-        if($name == '' || $address == ''){
+        if ($name == '' || $address == '') {
             $this->message = ['Uzupełnij brakujące pola!'];
             return $this->render('add-school', ['messages' => $this->message]);
         }
 
-        $this -> schoolRepository ->addSchool(
-            new School($address, $name)
-        );
-
-        $this->message = ['Dodano szkołę.'];
+        if ($this->schoolRepository->isInBase($address)) {
+            $this->message = ['Szkoła jest już w bazie.'];
+        }
+        else {
+            $this->schoolRepository->addSchool(new School($address, $name));
+            $this->message = ['Dodano szkołę.'];
+        }
         return $this->render('add-school', ['messages' => $this->message]);
+    }
+
+
+    public function getSchoolsWithoutDirector() : ?array {
+        return $this -> schoolRepository -> schoolsWithoutDirector();
     }
 
 }

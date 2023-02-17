@@ -1,6 +1,7 @@
 <?php
 
 class ClassInSchool {
+    private int $id;
     private int $tutorId = -1;
     private string $name;
     private int $schoolId;
@@ -9,10 +10,12 @@ class ClassInSchool {
      * @param $tutorId null or int
      */
     public function __construct(
+        $id,
         $tutorId,
         string $name,
         int $schoolId
     ){
+        $this -> id = $id;
         $this -> name = $name;
         $this -> schoolId = $schoolId;
         $this -> tutorId =  ($tutorId != null) ? $tutorId : -1;
@@ -28,6 +31,10 @@ class ClassInSchool {
 
     public function getSchoolId(): int {
         return $this->schoolId;
+    }
+
+    public function getId(): int {
+        return $this->id;
     }
 
 }

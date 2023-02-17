@@ -2,10 +2,10 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/adding.css">
-
     <link rel="shortcut icon" href="/public/img/logo.svg">
 
     <script type="text/javascript" src="/public/js/registerValidate.js" defer></script>
+    <script type="text/javascript" src="/public/js/schoolsWithoutDirector.js" defer></script>
     <title> Diarium - add user</title>
 </head>
 
@@ -13,7 +13,7 @@
     <div class="base-container">
         <?php include 'public/views/nav.php'; ?>
         <main>
-            Dodawanie użytkownika
+            <div class="quick-info">Dodawanie użytkownika</div>
             <section class="user-form">
                 <form action="addUser" method="POST" ENCTYPE="multipart/form-data">
                     <div class="messages">
@@ -36,7 +36,15 @@
                         <option value="2">Dyrektor</option>
                         <option value="1">Admin</option>
                     </select>
-                    <? echo 'Jeszcze klasy do ktorych należy/ą użytkownicy'; ?>
+                    <?='Jeszcze szkoły/klasy do ktorych należy użytkownik';?>
+
+                    <?='Tutaj bęcdzie wybór szkoły dla dyrektora'?>
+                    <?php foreach (((new SchoolRepository())->schoolsWithoutDirector()) as $school):?>
+                        <br>
+                        <?=$school['name'].' '.$school['address'];?>
+
+                    <?php endforeach;?>
+
                     <input class="fileButton" type="file" name="file"/>
                     <button type="submit">DODAJ</button>
                 </form>

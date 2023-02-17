@@ -10,7 +10,6 @@
     <?php include 'public/views/nav.php'; ?>
     <main>
         <section class="grades">
-
             <?php
                 foreach ($subjects as $subject) :
                 $sum = 0;
