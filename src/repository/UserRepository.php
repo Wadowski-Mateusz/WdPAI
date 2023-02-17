@@ -86,20 +86,18 @@ class UserRepository extends Repository {
         return $school['id_school'];
     }
 
-    public function addUser(User $user, UserDetail $userDetail): void {
+    public function addUser(User $user, UserDetail $userDetail, int $roleId): void {
 //        TODO uzupełnić o szkołę, klasę
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO details (birthday, email, name, surname, phone_number, id_school, avatar_path)
-            VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id
+            INSERT INTO details (birthday, name, surname, id_school, avatar_path)
+            VALUES (?, ?, ?, ?, ?) RETURNING id
         ');
 
         $stmt->execute([
             $userDetail -> getBirthday(),
-            null,
             $userDetail -> getName(),
             $userDetail -> getSurname(),
-            null,
             $userDetail -> getIdSchool(),
             $userDetail -> getAvatarPath()
         ]);
@@ -115,8 +113,21 @@ class UserRepository extends Repository {
             $user -> getPesel(),
             $user -> getPassword(),
             $id,
-            1 //TODO ?
+            $roleId
         ]);
+    }
+
+    public function getStudentClass(int $studentId) : int{
+        //TODO zamien na joina
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT id_class from users_classes where id_user=:id
+        ');
+
+        $stmt->bindParam(":id", $studentId, PDO::PARAM_INT);
+        $stmt->execute();
+        $id = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $id['id_class'];
     }
 
 

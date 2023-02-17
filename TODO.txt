@@ -65,7 +65,7 @@ COOKIE:
     W aplikacji użyto zapytań do utworzonych widoków na bazie danych lub zastosowano wyzwalacz, funkcje lub transakcje (co najmniej jedno zastosowanie z czterech wymienionych daje pełny punkt).
 
 20. AKCJE NA REFERENCJACH
-    W zapytaniach stosowane są JOINY.
+    W zapytaniach stosowane są JOINY.   https://www.w3schools.com/sql/sql_join.asp
 
 21. BEZPIECZEŃSTWO
     Hasła są hashowane, dostęp do zawartości dla zalogowanych użytkowników nie jest osiągalny bez autoryzacji.

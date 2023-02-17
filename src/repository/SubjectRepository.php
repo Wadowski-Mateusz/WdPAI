@@ -31,4 +31,25 @@ class SubjectRepository extends Repository {
         return null;
     }
 
+    public function getClassSubjects(int $classId){
+
+        $stmt = $this->database->connect()->prepare(
+            'SELECT * FROM subjects WHERE id_class=:id'
+        );
+
+        $stmt->bindParam(':id', $classId, PDO::PARAM_INT);
+        $stmt->execute();
+        $subjects = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $results = [];
+
+        foreach ($subjects as $subject){
+            $results[] = new Subject(
+                $subject['id'], $subject['id_class'], $subject['id_teacher'], $subject['name']
+            );
+        }
+
+        return $results;
+    }
+
 }

@@ -28,10 +28,19 @@ class GradeController extends AppController {
         // TODO check if something is empty
     }
 
-    public function studentGrades(int $studentId) {
-        $grades = $this -> gradeRepository -> getStudentGrades($studentId);
-        $this->render('grades', ['grades' => $grades]);
+    // Grades for student
+    public function grades() {
+        $grades = $this -> gradeRepository -> getStudentGrades($_COOKIE['userId']);
+        // TODO id klasy
+        $classId = (new UserRepository()) -> getStudentClass($_COOKIE['userId']);
+        $subjects = (new SubjectRepository()) -> getClassSubjects($classId);
+        $this->render('grades', ['grades' => $grades, 'subjects' => $subjects]);
+//        $this->render('grades');
     }
+
+//    public function grades() {
+//        $this->render('grades');
+//    }
 
 
 }

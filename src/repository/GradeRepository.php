@@ -22,6 +22,23 @@ class GradeRepository extends Repository {
 
     public function getStudentGrades(int $studentId){
 
+        $stmt = $this->database->connect()->prepare(
+            'SELECT * FROM grades WHERE id_student=:id'
+        );
+
+        $stmt->bindParam(':id', $studentId, PDO::PARAM_INT);
+        $stmt->execute();
+        $grades = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+        $results = [];
+
+        foreach ($grades as $grade){
+            $results[] = new Grade(
+                $grade['id_student'], $grade['id_subject'], $grade['grade'], $grade['date_of_issue']
+            );
+        }
+
+        return $results;
     }
 
 }

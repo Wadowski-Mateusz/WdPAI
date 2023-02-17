@@ -7,7 +7,7 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 
-Routing::get('grades', 'DefaultController');
+//Routing::get('grades', 'DefaultController');
 Routing::get('plan', 'DefaultController');
 
 Routing::post('login', 'SecurityController');
@@ -23,6 +23,7 @@ Routing::post("addClass", 'ClassController');
 
 Routing::post("addSubject", 'SubjectController');
 
+Routing::get('grades', 'GradeController');
 Routing::post("addGrade", 'GradeController');
 
 
