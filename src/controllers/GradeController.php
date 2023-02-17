@@ -3,6 +3,9 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Grade.php';
 require_once __DIR__.'/../repository/GradeRepository.php';
+require_once __DIR__.'/../repository/ClassRepository.php';
+require_once __DIR__.'/../repository/SubjectRepository.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 
 class GradeController extends AppController {
 
@@ -24,12 +27,8 @@ class GradeController extends AppController {
         $classes = $this -> classRepository -> getClassesForTeacher($_COOKIE['userId']);
         $students = $this -> classRepository -> getAllStudentsFromClass($classes[0]->getId());
 
-
         if (!$this -> isPost())
             return $this->render('add-grade', ['classes' => $classes, 'students' => $students]);
-
-
-
 
         $studentId = $_POST['studentId'];
         $subjectId = $_POST['subjectId'];
@@ -47,9 +46,8 @@ class GradeController extends AppController {
     */
     public function grades() {
         $grades = $this -> gradeRepository -> getStudentGrades($_COOKIE['userId']);
-        // TODO id klasy - ? na następny dzień nie wiem o co chodzi
         $classId =  $this -> userRepository -> getStudentClass($_COOKIE['userId']);
-        $subjects = $this->subjectRepository -> getClassSubjects($classId);
+        $subjects = $this -> subjectRepository -> getClassSubjects($classId);
         $this->render('grades', ['grades' => $grades, 'subjects' => $subjects]);
     }
 

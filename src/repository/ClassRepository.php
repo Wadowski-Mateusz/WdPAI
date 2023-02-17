@@ -36,8 +36,6 @@ class ClassRepository extends Repository {
 
     public function getClassesFromSchool(int $schoolId){
 
-        //TODO jeśli możliwe, zamień na join
-
         $stmt = $this->database->connect()->prepare(
             'select * from classes where id_school=:schoolId;'
         );
@@ -54,8 +52,6 @@ class ClassRepository extends Repository {
     }
 
     public function getClassesForTeacher(int $teacherId){
-
-        //TODO jeśli możliwe, zamień na join
 
         $stmt = $this->database->connect()->prepare(
             'select * from classes where id in (select id_class from users_classes where id_user=:teacherId);'
@@ -110,7 +106,6 @@ class ClassRepository extends Repository {
         return $result;
     }
 
-
     public function searchClass(int $schoolId, string $str) {
 
         if ($str==='')
@@ -128,9 +123,7 @@ class ClassRepository extends Repository {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
     private function getClassesFromSchoolRaw(int $schoolId){
-
         $stmt = $this->database->connect()->prepare(
             'select * from classes where id_school=:schoolId;'
         );
@@ -138,6 +131,5 @@ class ClassRepository extends Repository {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 
 }

@@ -40,7 +40,6 @@ class SchoolRepository extends Repository {
     }
 
     public function hasDirector(int $schoolId) : bool {
-        //TODO jeżli możliwe, zamień na JOIN
         $stmt = $this -> database -> connect() ->prepare(
             'select id_school from details where id in (select id_detail from users where id_role=2);' // id 2 is assigned for director
         );
@@ -50,10 +49,9 @@ class SchoolRepository extends Repository {
         if(!$hasDirector)
             return false;
 
-        foreach ($hasDirector as $e){
+        foreach ($hasDirector as $e)
             if($e['id_school'] === $schoolId)
                 return true;
-        }
 
         return false;
     }

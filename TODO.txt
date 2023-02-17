@@ -53,9 +53,6 @@ COOKIE:
 15. SESJA UŻYTKOWNIKA
     Utrzymanie sesji (w oparciu o cookies i bazę danych).
 
-18. WYLOGOWYWANIE
-    Usunięcie sesji/ ciasteczka przy wylogowaniu użytkownika oraz zaktualizowanie bazy danych.
-
 19. WIDOKI, WYZWALACZ/ FUNKCJE, TRANSAKCJE NA BAZIE DANYCH
     W aplikacji użyto zapytań do utworzonych widoków na bazie danych lub zastosowano wyzwalacz, funkcje lub transakcje (co najmniej jedno zastosowanie z czterech wymienionych daje pełny punkt).
 

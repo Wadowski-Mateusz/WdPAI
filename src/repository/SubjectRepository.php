@@ -42,12 +42,8 @@ class SubjectRepository extends Repository {
         $subjects = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 
         $results = [];
-
-        foreach ($subjects as $subject){
-            $results[] = new Subject(
-                $subject['id'], $subject['id_class'], $subject['id_teacher'], $subject['name']
-            );
-        }
+        foreach ($subjects as $subject)
+            $results[] = new Subject($subject['id'], $subject['id_class'], $subject['id_teacher'], $subject['name']);
 
         return $results;
     }
