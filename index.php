@@ -18,7 +18,10 @@ Routing::post("addSchool", 'SchoolController');
 Routing::get("getSchool", 'SchoolController');
 Routing::get("getSchoolsWithoutDirector", 'SchoolController');
 
+Routing::get('panelClasses', 'ClassController');
 Routing::post("addClass", 'ClassController');
+Routing::post("studentsFromClass", 'ClassController');
+Routing::post("searchClass", 'ClassController');
 
 Routing::post("addSubject", 'SubjectController');
 

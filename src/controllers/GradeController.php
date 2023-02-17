@@ -22,9 +22,11 @@ class GradeController extends AppController {
 
     public function addGrade() {
         $classes = $this -> classRepository -> getClassesForTeacher($_COOKIE['userId']);
+        $students = $this -> classRepository -> getAllStudentsFromClass($classes[0]->getId());
 
-        if (!$this -> isPost()) # TODO dodaj tutaj dablice które będą wykorzystywane
-            return $this->render('add-grade', ['classes' => $classes]);
+
+        if (!$this -> isPost())
+            return $this->render('add-grade', ['classes' => $classes, 'students' => $students]);
 
 
 

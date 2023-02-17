@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/adding.css">
     <link rel="shortcut icon" href="/public/img/logo.svg">
     <title> Diarium - add grade </title>
+    <script type="text/javascript" src="/public/js/studentsFromClassSearch.js" defer></script>
 </head>
 
 <body>
@@ -32,11 +33,11 @@
                 </select>
 
                 <br>
-                SELECT CLASS
-                <br>
                 SELECT SUBJECT
                 <br>
                 SELECT USER
+                <input placeholder="uczeń">
+
                 <br>
                 ENTER GRADE
                 <br>

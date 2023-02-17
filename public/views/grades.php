@@ -23,7 +23,6 @@
                                 $sum+=$grade->getGrade();
                                 $denominator+=1;
                             ?>
-<!--                            <div class="grade"> --><?php //=$grade->getGrade();?><!-- </div>-->
                             <div class="grade"> <?=floatToGrade($grade->getGrade());?> </div>
                         <?php endif;?>
                     <?php endforeach;?>

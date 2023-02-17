@@ -103,6 +103,11 @@
                 Add Subject
             </a>
         </li>
+        <li>
+            <a href="panelClasses" class="button">
+                Panel Classes
+            </a>
+        </li>
 
         <li>
             <a href="login" class="button">

@@ -1,0 +1,23 @@
+.search {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.classes {
+    display: flex;
+    flex-direction: row;
+    /*align-content: space-evenly;*/
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
+
+.class {
+    background: #B7DFEC;
+    font-size: 2em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
