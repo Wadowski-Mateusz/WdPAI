@@ -23,12 +23,6 @@ COOKIE:
 8. ZŁOŻONOŚĆ BAZY DANYCH
     W bazie nie może występować anomalia modyfikacji i usunięć.
 
-10. JAVA SCRIPT
-     Do tworzenia, pobierania oraz manipulowania elementami DOM.
-
-11. FETCH API (AJAX)
-    Zastosowanie Fetch API z użyciem metody POST oraz GET. Przetworzenie otrzymanych danych z serwera w blokach then().
-
 13. RESPONSYWNOŚĆ
     Zaprezentowanie co najmniej 5 widoków responsywnych, działających pod różne urządzanie wybrane z Narzędzi Deweloperskich przeglądarki. Zastosowanie CSS media queries.
 
@@ -46,9 +40,6 @@ COOKIE:
 
 19. WIDOKI, WYZWALACZ/ FUNKCJE, TRANSAKCJE NA BAZIE DANYCH
     W aplikacji użyto zapytań do utworzonych widoków na bazie danych lub zastosowano wyzwalacz, funkcje lub transakcje (co najmniej jedno zastosowanie z czterech wymienionych daje pełny punkt).
-
-20. AKCJE NA REFERENCJACH
-    W zapytaniach stosowane są JOINY.
 
 21. BEZPIECZEŃSTWO
     Hasła są hashowane, dostęp do zawartości dla zalogowanych użytkowników nie jest osiągalny bez autoryzacji.
