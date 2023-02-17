@@ -28,4 +28,10 @@ class GradeController extends AppController {
         // TODO check if something is empty
     }
 
+    public function studentGrades(int $studentId) {
+        $grades = $this -> gradeRepository -> getStudentGrades($studentId);
+        $this->render('grades', ['grades' => $grades]);
+    }
+
+
 }

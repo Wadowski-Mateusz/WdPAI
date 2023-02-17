@@ -49,14 +49,14 @@ COOKIE:
 14. LOGOWANIE
     Proces logowania użytkowników w oparciu o bazę danych, zastosowanie odpowiedniego mapowania i weryfikacji.
 
-15. SESJA UŻYTKOWNIKA
-    Utrzymanie sesji (w oparciu o cookies i bazę danych).
+16. ROLE UŻYTKOWNIKÓW
+    Aplikacja posiada przypisane role dla użytkowników - co najmniej dwa typy ról.
 
-16. UPRAWNIENIA UŻYTKOWNIKÓW
+17. UPRAWNIENIA UŻYTKOWNIKÓW
     Uprawnienia użytkowników powinny być weryfikowane przez system w trakcie działania aplikacji.
 
-17. ROLE UŻYTKOWNIKÓW
-    Aplikacja posiada przypisane role dla użytkowników - co najmniej dwa typy ról.
+15. SESJA UŻYTKOWNIKA
+    Utrzymanie sesji (w oparciu o cookies i bazę danych).
 
 18. WYLOGOWYWANIE
     Usunięcie sesji/ ciasteczka przy wylogowaniu użytkownika oraz zaktualizowanie bazy danych.
@@ -65,7 +65,7 @@ COOKIE:
     W aplikacji użyto zapytań do utworzonych widoków na bazie danych lub zastosowano wyzwalacz, funkcje lub transakcje (co najmniej jedno zastosowanie z czterech wymienionych daje pełny punkt).
 
 20. AKCJE NA REFERENCJACH
-    W zapytaniach stosowane są JOINY, odwołujemy się do relacyjnych tabel.
+    W zapytaniach stosowane są JOINY.
 
 21. BEZPIECZEŃSTWO
     Hasła są hashowane, dostęp do zawartości dla zalogowanych użytkowników nie jest osiągalny bez autoryzacji.

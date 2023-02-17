@@ -8,9 +8,6 @@ $path = parse_url($path, PHP_URL_PATH);
 Routing::get('', 'DefaultController');
 
 Routing::get('grades', 'DefaultController');
-Routing::get('attendance', 'DefaultController');
-Routing::get('remarks', 'DefaultController');
-Routing::get('messages', 'DefaultController');
 Routing::get('plan', 'DefaultController');
 
 Routing::post('login', 'SecurityController');

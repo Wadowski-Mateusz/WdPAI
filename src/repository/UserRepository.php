@@ -64,10 +64,8 @@ class UserRepository extends Repository {
 
         return new UserDetail(
             $user['birthday'],
-            $user['email'],
             $user['name'],
             $user['surname'],
-            $user['phone_number'],
             $user['id_school'],
             $user['avatar_path']
         );
@@ -89,7 +87,7 @@ class UserRepository extends Repository {
     }
 
     public function addUser(User $user, UserDetail $userDetail): void {
-//        TODO uzupełnić o szkołę, klasę, role... może jeszcze cos o czym zapomnialem
+//        TODO uzupełnić o szkołę, klasę
 
         $stmt = $this->database->connect()->prepare('
             INSERT INTO details (birthday, email, name, surname, phone_number, id_school, avatar_path)
@@ -98,7 +96,6 @@ class UserRepository extends Repository {
 
         $stmt->execute([
             $userDetail -> getBirthday(),
-//            date("Y/m/d"),
             null,
             $userDetail -> getName(),
             $userDetail -> getSurname(),
@@ -136,5 +133,11 @@ class UserRepository extends Repository {
         return !(!$user);
     }
 
+
+//    public function getTeachersFromSchool(int $schoolId) : ?array{
+//
+//
+//        return null;
+//    }
 
 }

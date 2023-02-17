@@ -52,9 +52,9 @@ class UserController extends AppController {
         $birthday = $this -> peselToBirthday($pesel);
 
         $user = new User($pesel, $this->generatePassword($pesel));
-        $userDetail = new UserDetail($birthday, '', $_POST['name'], $_POST['surname'], '', 1, $avatarPath);
-        $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
+        $userDetail = new UserDetail($birthday, $_POST['name'], $_POST['surname'], 1, $avatarPath);
         $this -> userRepository -> addUser($user, $userDetail);
+        $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
         return $this->render('add-user', ['messages' => $this->message]);
     }
 

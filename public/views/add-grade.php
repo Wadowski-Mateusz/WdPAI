@@ -27,9 +27,7 @@
                 TODO SUBJECTID
                 <br>
                 <input name="grade" type="text" placeholder="Nazwa klasy">
-                <input name="weight" type="text" placeholder="Nazwa klasy">
                 <input name="dateOfIssue" type="text" placeholder="Nazwa klasy">
-                <input name="comment" type="text" placeholder="Nazwa klasy">
                 <button type="submit">DODAJ</button>
             </form>
         </section>

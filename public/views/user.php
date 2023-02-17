@@ -20,14 +20,6 @@
                         <?= $detail->getBirthday();?>
                         <br>
                         <?php
-                            if($detail->getEmail() != "")
-                                echo $detail->getEmail();
-                                echo '<br>';
-                            if($detail->getPhoneNumber() != "")
-                                echo $detail->getPhoneNumber();
-                                echo '<br>';
-                            ?>
-                        <?php
                             require_once __DIR__.'/../../src/controllers/SchoolController.php';
                             $school = (new SchoolController())->getSchool($detail->getIdSchool());
                             echo $school -> getName();

@@ -7,13 +7,13 @@
     <ul>
         <?php if ($_COOKIE['userRole']!=="") {
             echo '
-        <li>
-            <a href="grades" class="button">
-                Grades
-                <i class="fa-solid fa-book-open"></i>
-            </a>
-        </li>
-        ';}
+                <li>
+                    <a href="grades" class="button">
+                        Grades
+                        <i class="fa-solid fa-book-open"></i>
+                    </a>
+                </li>
+            ';}
         ?>
 
         <?php if ($_COOKIE['userRole']!== "") {
@@ -31,19 +31,19 @@
 
 
 <!--        <li>-->
-<!--            <a href="attendance" class="button">-->
+<!--            <a href="#" class="button">-->
 <!--                Attendance-->
 <!--                <i class="fa-regular fa-calendar-check"></i>-->
 <!--            </a>-->
 <!--        </li>-->
 <!--        <li>-->
-<!--            <a href="remarks" class="button">-->
+<!--            <a href="#" class="button">-->
 <!--                Remarks-->
 <!--                <i class="fa-solid fa-circle-exclamation"></i>-->
 <!--            </a>-->
 <!--        </li>-->
 <!--        <li>-->
-<!--            <a href="messages" class="button">-->
+<!--            <a href="#" class="button">-->
 <!--                Messages-->
 <!--                <i class="fa-solid fa-envelope"></i>-->
 <!--            </a>-->
