@@ -4,25 +4,16 @@ Grades:
     https://www.youtube.com/watch?v=TudqsSq653k
     początek
     dodać ikonę do nazwy karty
+    let now = new Date();
+        document.querySelector("data") = now.getTime();
 
 Login/adduser:
     haszowanie
-    sprawdzanie roli przy dodawaniu
-
-Plan:
-
-Remarks:
-    let now = new Date();
-    document.querySelector("data") = now.getTime();
-
-addUser:
-    imie i nazwisko aby zaczynało się wielką, miało same małe potem, a po - było znów wielką
 
 COOKIE:
-    usuwanie ciasteczek na wylogowanie
     refresh cookie
     https://stackoverflow.com/questions/25424033/how-to-extend-cookie-expiration-time-for-the-users
-
+    jak ciasteczko wygaśnie to wylogować
 
 1. DOKUMENTACJE W README.MD
 
