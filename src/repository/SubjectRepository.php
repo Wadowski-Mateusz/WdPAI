@@ -6,29 +6,16 @@ require_once __DIR__.'/../models/School.php';
 class SubjectRepository extends Repository {
 
     public function addSubject(Subject $subject) : void{
-//        $stmt = $this->database->connect()->prepare('
-//        INSERT INTO schools (address, name)
-//        VALUES (?, ?)
-//        ');
-//
-//        $stmt->execute([
-//            $school -> getAddress(),
-//            $school -> getName()
-//        ]);
-    }
+        $stmt = $this->database->connect()->prepare('
+        INSERT INTO subjects (id_class, id_teacher, name)
+        VALUES (?, ?, ?)
+        ');
 
-    public function getSubject(int $id) : ?Subject{
-//        $stmt = $this->database->connect()->prepare(
-//            'select * from schools where id=:id'
-//        );
-//
-//        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-//        $stmt->execute();
-//
-//        $school = $stmt->fetch(PDO::FETCH_ASSOC);
-//
-//        return new School($school['id'], $school['address'], $school['name']);
-        return null;
+        $stmt->execute([
+            $subject->getClassId(),
+            $subject->getTeacherId(),
+            $subject->getName()
+        ]);
     }
 
     public function getClassSubjects(int $classId){
@@ -46,6 +33,17 @@ class SubjectRepository extends Repository {
             $results[] = new Subject($subject['id'], $subject['id_class'], $subject['id_teacher'], $subject['name']);
 
         return $results;
+    }
+
+    public function isInBase(int $classId, string $name) : bool {
+        $stmt = $this->database->connect()->prepare(
+            'SELECT * FROM subjects WHERE id_class=:id and name=:name'
+        );
+
+        $stmt->bindParam(':id', $classId, PDO::PARAM_INT);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->execute();
+        return (bool) $stmt -> fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
