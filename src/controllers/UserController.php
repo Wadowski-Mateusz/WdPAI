@@ -25,18 +25,25 @@ class UserController extends AppController {
     }
 
     public function addUser() {
-        if (!$this->isPost()) {
-            $this->message = ['TODO usun 49082198359'];
+        if (!$this->isPost())
+            return $this->render('add-user');
+
+
+        $pesel = $_POST['pesel'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $role = $_POST['roles'];
+
+        if($pesel === '' || $surname === '' || $name === '' || ($role==="2" && $schoolId==-1)) {
+            $this -> message = ['Uzupełnij brakujące pola!'];
             return $this->render('add-user', ['messages' => $this->message]);
         }
 
-        //TODO zmień stałe id na wybraną szkołę
-//        if ((new SchoolRepository()) -> hasDirector(2) && $_POST['roles'] == 2) {
-//            $this->message = ['Szkoła ma już przypisanego dydektora'];
-//            return $this->render('add-user', ['messages' => $this->message]);
-//        }
-
-        $pesel = $_POST['pesel'];
+        $schoolId = ($role==='director') ? $_POST['schools'] :  $this->userRepository->getUserSchoolId();
+        if($role === "2" && $schoolId == -1) {
+            $this -> message = ['Wybierz szkołę!'];
+            return $this->render('add-user', ['messages' => $this->message]);
+        }
 
         if($this->userRepository->isInBase($pesel)){
             $this->message = ['Użytkownik o podanym numerze PESEL znajduję się w bazie!'];
@@ -44,7 +51,6 @@ class UserController extends AppController {
         }
 
         $file = $_FILES['file'];
-
         if(strlen($file['tmp_name']) > 0)
             if (!$this->validateFile($file))
                 return $this->render('add-user', ['messages' => $this->message]);
@@ -58,10 +64,11 @@ class UserController extends AppController {
         $birthday = $this -> peselToBirthday($pesel);
 
         $user = new User($pesel, $this->generatePassword($pesel));
-        $userDetail = new UserDetail($birthday, $_POST['name'], $_POST['surname'], 1, $avatarPath);
-        $this -> userRepository -> addUser($user, $userDetail, $_POST['roles']);
-        $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
+        $userDetail = new UserDetail($birthday, $name, $surname, $schoolId, $avatarPath);
 
+        $this -> userRepository -> addUser($user, $userDetail, $role);
+
+        $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
         return $this->render('add-user', ['messages' => $this->message]);
     }
 

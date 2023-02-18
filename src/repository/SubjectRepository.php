@@ -27,7 +27,7 @@ class SubjectRepository extends Repository {
 //
 //        $school = $stmt->fetch(PDO::FETCH_ASSOC);
 //
-//        return new School($school['address'], $school['name']);
+//        return new School($school['id'], $school['address'], $school['name']);
         return null;
     }
 

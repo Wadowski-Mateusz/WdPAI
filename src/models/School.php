@@ -1,14 +1,21 @@
 <?php
 
 class School {
+
+    private int $id;
     private string $address;
     private string $name;
     public function __construct(
+        int $id,
         string $address,
         string $name
     ) {
         $this -> address = $address;
         $this -> name = $name;
+    }
+
+    public function getId(): int {
+        return $this->id;
     }
 
     public function getAddress(): string {

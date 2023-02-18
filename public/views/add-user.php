@@ -6,6 +6,7 @@
 
     <script type="text/javascript" src="/public/js/registerValidate.js" defer></script>
     <script type="text/javascript" src="/public/js/schoolsWithoutDirector.js" defer></script>
+    <script type="text/javascript" src="/public/js/addUser.js" defer></script>
     <title> Diarium - add user</title>
 </head>
 
@@ -30,20 +31,24 @@
                     <input name="surname" type="text" placeholder="nazwisko">
                     <input name="pesel" type="text" placeholder="PESEL">
 
-                    <select id="role" name="roles">
-                        <option value="4">Uczeń</option>
-                        <option value="3">Nauczyciel</option>
-                        <option value="2">Dyrektor</option>
+                    <select id="role" name="roles" class="roles">
+                        <?php if($_COOKIE['userRole']=='director'):?>
+                            <option value="3">Nauczyciel</option>
+                            <option value="4">Uczeń</option>
+                        <?php else :?>
                         <option value="1">Admin</option>
+                        <option value="2">Dyrektor</option>
+                        <?php endif;?>
                     </select>
-                    <?='Jeszcze szkoły/klasy do ktorych należy użytkownik';?>
 
-                    <?='Tutaj bęcdzie wybór szkoły dla dyrektora'?>
-                    <?php foreach (((new SchoolRepository())->schoolsWithoutDirector()) as $school):?>
-                        <br>
-                        <?=$school['name'].' '.$school['address'];?>
-
-                    <?php endforeach;?>
+                    <select class="schools" name="schools" id="schools">
+                        <option class="school" id=-1, value=-1>Wybierz szkołę</option>
+                        <?php foreach (((new SchoolRepository())->schoolsWithoutDirector()) as $school):?>
+                            <option class="school" id=<?=$school['id']?> value=<?=$school['id']?>>
+                                <?=$school['name'];?>
+                            </option>
+                        <?php endforeach;?>
+                    </select>
 
                     <input class="fileButton" type="file" name="file"/>
                     <button type="submit">DODAJ</button>

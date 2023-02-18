@@ -7,5 +7,5 @@ function logout() {
     fetch(`/logout/`);
 }
 
-logoutButton.addEventListener("click", logout);
+logoutButton.addEventListener('click', logout);
 
