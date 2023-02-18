@@ -8,14 +8,13 @@ class UserRepository extends Repository {
 
     public function getUser(string $pesel, string $password): ?User {
         $stmt = $this->database->connect() -> prepare(
-            'SELECT * FROM users WHERE password=:password AND pesel=:pesel;'
+            'SELECT * FROM users WHERE pesel=:pesel;'
         );
-        $stmt -> bindParam(':password', $password, PDO::PARAM_STR);
         $stmt -> bindParam(':pesel', $pesel, PDO::PARAM_STR);
         $stmt -> execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if(!$user || $user['is_logged'])
+        if(!$user || $user['is_logged'] || !password_verify($password, $user['password']))
             return null;
 
         $this->login($user['id'], $user['id_role']);

@@ -62,7 +62,7 @@ class UserController extends AppController {
 
         $birthday = $this -> peselToBirthday($pesel);
 
-        $user = new User($pesel, $this->generatePassword($pesel));
+        $user = new User($pesel, password_hash($surname, PASSWORD_DEFAULT));
         $userDetail = new UserDetail($birthday, $name, $surname, $schoolId, $avatarPath);
 
         $userId = $this -> userRepository -> addUser($user, $userDetail, $role);
@@ -98,10 +98,6 @@ class UserController extends AppController {
         if (strlen($file['tmp_name']) == 0)
             return (intval($_POST['pesel'][9]) % 2) ? 'default_man.png' : 'default_woman.png';
         return md5($_POST['pesel']).'.'.pathinfo($file['name'], PATHINFO_EXTENSION);
-    }
-
-    private function generatePassword(string $pesel) {
-        return md5(substr(md5($pesel), 0, 12));
     }
 
     private function peselToBirthday($pesel): string {
