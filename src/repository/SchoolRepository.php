@@ -2,6 +2,7 @@
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/School.php';
+require_once __DIR__.'/../models/UserIdWithName.php';
 
 class SchoolRepository extends Repository {
 
@@ -62,7 +63,22 @@ class SchoolRepository extends Repository {
         );
         $stmt->execute();
 
-        return $stmt->fetchall(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function teachersFromSchool(int $schoolId) : array {
+
+        $stmt = $this -> database -> connect() ->prepare(
+            'select users.id, details.name, details.surname from users left join details on users.id_detail = details.id where id_detail in (select id from details where id_school=:schoolId) and id_role=3'
+        );
+        $stmt->bindParam(':schoolId', $schoolId, PDO::PARAM_INT);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = [];
+        foreach ($users as $user)
+            $results[] = new UserIdWithName($user['id'], $user['name'], $user['surname']);
+        return $results;
+
     }
 
 }

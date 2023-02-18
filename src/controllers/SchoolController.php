@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/School.php';
+require_once __DIR__.'/../models/UserIdWithName.php';
 require_once __DIR__.'/../repository/SchoolRepository.php';
 
 class SchoolController extends AppController {
@@ -45,5 +46,10 @@ class SchoolController extends AppController {
     public function getSchoolsWithoutDirector() : ?array {
         return $this -> schoolRepository -> schoolsWithoutDirector();
     }
+
+    public function getTeachersFromSchool(int $schoolId) : array {
+        return $this -> schoolRepository -> teachersFromSchool($schoolId);
+    }
+//        return [];
 
 }

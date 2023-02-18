@@ -23,8 +23,20 @@
                     ?>
                 </div>
                 <input name="name" type="text" placeholder="Nazwa klasy">
-                TODO NAUCZYCIEL
-<!--                <input name="tutorId" type="text" placeholder="TODO NAUCZYCIEL">-->
+
+                <select class="teachers" name="teachers" id="teachers">
+                    <option class="teacher" id=-1, value=-1>Wybierz wychowawcę</option>
+                    <?php $schoolId = (new UserRepository())->getUserSchoolId(); ?>
+                    <?php $teachers = (new SchoolController())->getTeachersFromSchool($schoolId); ?>
+
+                    <?php foreach ($teachers as $teacher):?>
+                        <option class="teacher" id=<?=$teacher->getId()?> value=<?=$teacher->getId()?> >
+                            <?=$teacher->getName().' '.$teacher->getSurname();?>
+                        </option>
+                    <?php endforeach;?>
+
+                </select>
+
                 <button type="submit">DODAJ</button>
             </form>
         </section>

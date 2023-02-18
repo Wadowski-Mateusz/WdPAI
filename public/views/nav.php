@@ -60,8 +60,10 @@
     }
 
     function navForTeacher() : array {
-        return ['addGrade' => 'Dodaj ocenę;"fa-solid fa-file-circle-plus',
-            'panelClasses' => 'Zarządzaj kalsami;""'];
+        return [
+            'addGrade' => 'Dodaj ocene;"fa-solid fa-file-circle-plus"',
+             'panelClasses' => 'Zarządzaj kalsami;""'
+        ];
     }
 
     function navForDirector() : array {

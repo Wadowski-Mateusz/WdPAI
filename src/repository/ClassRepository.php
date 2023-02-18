@@ -35,12 +35,28 @@ class ClassRepository extends Repository {
     }
 
     public function getClassesFromSchool(int $schoolId) : array{
+
         $stmt = $this->database->connect()->prepare(
             'select * from classes where id_school=:schoolId;'
         );
         $stmt->bindParam(':schoolId', $schoolId, PDO::PARAM_INT);
         $stmt->execute();
 
+        $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $result = [];
+        foreach ($classes as $class)
+            $result[] = new ClassInSchool($class['id'], $class['id_tutor'], $class['name'], $class['id_school']);
+
+        return $result;
+    }
+
+    public function classesWithoutTutor(int $schoolId) {
+        $stmt = $this -> database -> connect() ->prepare(
+            'select * from classes where id_school=:schoolId and id_tutor = -1'
+        );
+        $stmt -> bindParam(':schoolId', $schoolId, PDO::PARAM_INT);
+        $stmt->execute();
         $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $result = [];
@@ -57,7 +73,6 @@ class ClassRepository extends Repository {
         );
         $stmt->bindParam(':teacherId', $teacherId, PDO::PARAM_INT);
         $stmt->execute();
-
         $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $result = [];
@@ -130,5 +145,7 @@ class ClassRepository extends Repository {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 
 }

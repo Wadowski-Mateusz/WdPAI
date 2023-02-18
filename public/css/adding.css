@@ -133,17 +133,16 @@ input.fileButton {
     line-height: 1.5em;
 }
 
-.classes {
+.classes, .teachers{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.class {
+.class, .teacher {
     background: #B8D8E2;
     color: black;
     margin: 3px;
     padding: 3px;
     line-height: 1.5em;
 }
-

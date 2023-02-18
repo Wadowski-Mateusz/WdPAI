@@ -6,7 +6,7 @@
 
     <script type="text/javascript" src="/public/js/registerValidate.js" defer></script>
     <script type="text/javascript" src="/public/js/schoolsWithoutDirector.js" defer></script>
-    <script type="text/javascript" src="/public/js/addUser.js" defer></script>
+    <script type="text/javascript" src="/public/js/hidingElement.js" defer></script>
     <title> Diarium - add user</title>
 </head>
 

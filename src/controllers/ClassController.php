@@ -22,24 +22,22 @@ class ClassController extends AppController {
         return $this->render('panel-classes', ['classes' => $classes]);
     }
 
-
     public function addClass() {
 
-//        #TODO NAUCZYCIEL
-
         if (!$this->isPost())
-        return $this->render('add-class');
+            return $this->render('add-class');
 
         $name = $_POST['name'];
+        $teacherId = $_POST['teachers'];
 
-        if ($name == '') {
+        if ($name == '' || $teacherId == -1) {
             $this->message = ['Uzupełnij brakujące pola!'];
             return $this->render('add-class', ['messages' => $this->message]);
         }
 
         $schoolId = (new UserRepository())->getUserSchoolId();
 
-        $class = new ClassInSchool(-1, null, $name, $schoolId);
+        $class = new ClassInSchool(-1, $teacherId, $name, $schoolId);
 
         if (!$this->classRepository->isInBase($class)) {
             $this->classRepository->addClass($class);
@@ -72,6 +70,10 @@ class ClassController extends AppController {
 
      public function getClassesFromSchool(): array {
          return $this->classRepository->getClassesFromSchool($this->userRepository->getUserSchoolId());
+     }
+
+     public function getClassesWithoutTutor(int $schoolId): array {
+        return $this -> classRepository -> classesWithoutTutor($schoolId);
      }
 
 }
