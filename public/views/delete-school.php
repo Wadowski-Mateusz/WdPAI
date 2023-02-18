@@ -27,7 +27,6 @@
                     <?php foreach (((new SchoolController())->getSchools()) as $school):?>
                         <option class="school" id=<?=$school->getId()?> value=<?=$school->getId()?>>
                             <?=$school->getName();?>
-                            <?php var_dump($school->getId())?>
                         </option>
                     <?php endforeach;?>
                 </select>

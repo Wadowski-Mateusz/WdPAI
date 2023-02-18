@@ -37,7 +37,7 @@ class SchoolController extends AppController {
             $this->message = ['Szkoła jest już w bazie.'];
         }
         else {
-            $this->schoolRepository->addSchool(new School($address, $name));
+            $this->schoolRepository->addSchool(new School(-1, $address, $name));
             $this->message = ['Dodano szkołę.'];
         }
         return $this->render('add-school', ['messages' => $this->message]);
