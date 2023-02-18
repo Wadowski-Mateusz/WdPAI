@@ -28,13 +28,12 @@ class UserController extends AppController {
         if (!$this->isPost())
             return $this->render('add-user');
 
-
         $pesel = $_POST['pesel'];
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $role = $_POST['roles'];
 
-        if($pesel === '' || $surname === '' || $name === '' || ($role==="2" && $schoolId==-1)) {
+        if($pesel === '' || $surname === '' || $name === '') {
             $this -> message = ['Uzupełnij brakujące pola!'];
             return $this->render('add-user', ['messages' => $this->message]);
         }
@@ -66,7 +65,10 @@ class UserController extends AppController {
         $user = new User($pesel, $this->generatePassword($pesel));
         $userDetail = new UserDetail($birthday, $name, $surname, $schoolId, $avatarPath);
 
-        $this -> userRepository -> addUser($user, $userDetail, $role);
+        $userId = $this -> userRepository -> addUser($user, $userDetail, $role);
+
+        if($role==='4')
+            $this->addUserToClass($userId, $_POST['classes']);
 
         $this->message[] = 'Pomyślnie dodano użytkownika do bazy.';
         return $this->render('add-user', ['messages' => $this->message]);
@@ -127,5 +129,9 @@ class UserController extends AppController {
                 return '22'.substr($pesel,0,2).'-1'.$pesel[4].'-'.substr($pesel,4,2);
         }
         return '';
+    }
+
+    private function addUserToClass(int $userId, int $classId){
+        $this -> userRepository -> addUserToClass($userId, $classId);
     }
 }

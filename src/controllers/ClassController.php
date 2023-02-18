@@ -70,4 +70,8 @@ class ClassController extends AppController {
         // TODO
      }
 
+     public function getClassesFromSchool(): array {
+         return $this->classRepository->getClassesFromSchool($this->userRepository->getUserSchoolId());
+     }
+
 }

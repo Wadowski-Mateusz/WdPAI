@@ -33,22 +33,35 @@
 
                     <select id="role" name="roles" class="roles">
                         <?php if($_COOKIE['userRole']=='director'):?>
-                            <option value="3">Nauczyciel</option>
                             <option value="4">Uczeń</option>
+                            <option value="3">Nauczyciel</option>
                         <?php else :?>
                         <option value="1">Admin</option>
                         <option value="2">Dyrektor</option>
                         <?php endif;?>
                     </select>
 
-                    <select class="schools" name="schools" id="schools">
-                        <option class="school" id=-1, value=-1>Wybierz szkołę</option>
-                        <?php foreach (((new SchoolRepository())->schoolsWithoutDirector()) as $school):?>
-                            <option class="school" id=<?=$school['id']?> value=<?=$school['id']?>>
-                                <?=$school['name'];?>
-                            </option>
-                        <?php endforeach;?>
-                    </select>
+                    <?php if($_COOKIE['userRole']=='admin'):?>
+                        <select class="schools" name="schools" id="schools">
+                            <option class="school" id=-1, value=-1>Wybierz szkołę</option>
+                            <?php foreach (((new SchoolController())->getSchoolsWithoutDirector()) as $school):?>
+                                <option class="school" id=<?=$school['id']?> value=<?=$school['id']?>>
+                                    <?=$school['name'];?>
+                                </option>
+                            <?php endforeach;?>
+                        </select>
+                    <?php endif; ?>
+
+                    <?php if($_COOKIE['userRole']=='director'):?>
+                        <select class="classes" name="classes" id="classes">
+                            <option class="class" id=-1, value=-1>Wybierz Klasę</option>
+                            <?php foreach ((new ClassController())->getClassesFromSchool() as $class):?>
+                                <option class="class" id=<?=$class->getId()?> value=<?=$class->getId()?>>
+                                    <?=$class->getName();?>
+                                </option>
+                            <?php endforeach;?>
+                        </select>
+                    <?php endif; ?>
 
                     <input class="fileButton" type="file" name="file"/>
                     <button type="submit">DODAJ</button>

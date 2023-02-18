@@ -34,8 +34,7 @@ class ClassRepository extends Repository {
         return !(!$class);
     }
 
-    public function getClassesFromSchool(int $schoolId){
-
+    public function getClassesFromSchool(int $schoolId) : array{
         $stmt = $this->database->connect()->prepare(
             'select * from classes where id_school=:schoolId;'
         );
@@ -46,7 +45,7 @@ class ClassRepository extends Repository {
 
         $result = [];
         foreach ($classes as $class)
-            $result[] = new ClassInSchool($class['id'], $class['id_tutor'], $class['name'],$class['id_school']);
+            $result[] = new ClassInSchool($class['id'], $class['id_tutor'], $class['name'], $class['id_school']);
 
         return $result;
     }

@@ -120,6 +120,7 @@ input.fileButton {
 
 .schools {
     display: none;
+    /*display: flex;*/
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -131,3 +132,18 @@ input.fileButton {
     padding: 3px;
     line-height: 1.5em;
 }
+
+.classes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.class {
+    background: #B8D8E2;
+    color: black;
+    margin: 3px;
+    padding: 3px;
+    line-height: 1.5em;
+}
+

@@ -42,7 +42,6 @@ class SchoolController extends AppController {
         return $this->render('add-school', ['messages' => $this->message]);
     }
 
-
     public function getSchoolsWithoutDirector() : ?array {
         return $this -> schoolRepository -> schoolsWithoutDirector();
     }

@@ -59,7 +59,7 @@ class UserRepository extends Repository {
         return $school['id_school'];
     }
 
-    public function addUser(User $user, UserDetail $userDetail, int $roleId): void {
+    public function addUser(User $user, UserDetail $userDetail, int $roleId) {
         $stmt = $this->database->connect()->prepare(
             'INSERT INTO details (birthday, name, surname, id_school, avatar_path)
             VALUES (?, ?, ?, ?, ?) RETURNING id'
@@ -75,13 +75,27 @@ class UserRepository extends Repository {
 
         $stmt = $this->database->connect()->prepare(
             'INSERT INTO users (pesel, password, id_detail, id_role)
-            VALUES (?, ?, ?, ?)'
+            VALUES (?, ?, ?, ?) RETURNING id'
         );
         $stmt->execute([
             $user -> getPesel(),
             $user -> getPassword(),
             $id,
             $roleId
+        ]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC)['id'];
+    }
+
+    public function addUserToClass($userId, $classId){
+        $stmt = $this->database->connect()->prepare(
+            'INSERT INTO users_classes (id_user, id_class)
+            VALUES (?, ?)'
+        );
+
+        $stmt->execute([
+            $userId,
+            $classId
         ]);
     }
 
