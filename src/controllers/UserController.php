@@ -38,8 +38,8 @@ class UserController extends AppController {
             return $this->render('add-user', ['messages' => $this->message]);
         }
 
-        $schoolId = ($role==='director') ? $_POST['schools'] :  $this->userRepository->getUserSchoolId();
-        if($role === "2" && $schoolId == -1) {
+        $schoolId = ($role == 2) ? $_POST['schools'] :  $this->userRepository->getUserSchoolId();
+        if($role == 2 && $schoolId == -1) {
             $this -> message = ['Wybierz szkołę!'];
             return $this->render('add-user', ['messages' => $this->message]);
         }
