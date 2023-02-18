@@ -21,10 +21,16 @@ class Routing {
   }
 
   public static function run ($url) {
-    $urlParts  = explode("/", $url);
-    $action = $urlParts[0];
+      if (sizeof(explode("/", $url)) == 2 && array_key_exists(explode("/", $url)[1], self::$routes)){
+          $action = explode("/", $url)[1];
+          $urlParts = explode("/", $url)[1];
+      }
+      else {
+          $urlParts = explode("/", $url);
+          $action = $urlParts[0];
+      }
 
-    if (!array_key_exists($action, self::$routes))
+      if (!array_key_exists($action, self::$routes))
       die("Wrong url!");
 
     $controller = self::$routes[$action];
@@ -33,10 +39,7 @@ class Routing {
 
     $id = $urlParts[1] ?? '';
 
-    // TODO
-//    $id = is_int($id) ? $id : '';
-
-    $object->$action($id);
+    $object->$action(intval($id));
   }
 
 }

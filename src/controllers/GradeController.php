@@ -1,5 +1,7 @@
 <?php
 
+use Cassandra\Time;
+
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Grade.php';
 require_once __DIR__.'/../repository/GradeRepository.php';
@@ -23,22 +25,30 @@ class GradeController extends AppController {
         $this->userRepository = new UserRepository();
     }
 
-    public function addGrade() {
-        $classes = $this -> classRepository -> getClassesForTeacher($_COOKIE['userId']);
-        $students = $this -> classRepository -> getAllStudentsFromClass($classes[0]->getId());
+    public function addGrade(int $id) {
+
+        http_response_code(200);
+
+        $subjects = $this -> subjectRepository -> getClassSubjects($id);
+        $students = $this -> classRepository -> getAllStudentsFromClass($id);
 
         if (!$this -> isPost())
-            return $this->render('add-grade', ['classes' => $classes, 'students' => $students]);
+            return $this->render('add-grade', ['subjects'=>$subjects, 'students' => $students]);
 
-        $studentId = $_POST['studentId'];
-        $subjectId = $_POST['subjectId'];
-        $grade = $_POST['grade'];
-        $dateOfIssue = $_POST['dateOfIssue'];
+        $studentId = $_POST['students'];
+        $subjectId = $_POST['subjects'];
+        $grade = $_POST['grades'];
 
-        // TODO check if something is empty
+        if ($studentId == -1 || $subjectId == -1 || $grade == -1){
+            $this->message = ['Uzupełnij pola'];
+            return $this->render('add-grade', ['subjects'=>$subjects, 'students' => $students, $this->message]);
+        }
 
-        $this->message = ['Brak opcji zapisu ocen do bazy'];
-        return $this->render('add-grade', ['messages' => $this->message]);
+        $this->gradeRepository->addGrade(new Grade($studentId,$subjectId,$grade,''));
+
+
+        $this->message = ['Dofano ocenę'];
+        return $this->render('add-grade', ['subjects'=>$subjects, 'students' => $students, $this->message]);
     }
 
     /**

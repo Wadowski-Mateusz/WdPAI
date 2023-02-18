@@ -10,6 +10,7 @@ class School {
         string $address,
         string $name
     ) {
+        $this -> id = $id;
         $this -> address = $address;
         $this -> name = $name;
     }

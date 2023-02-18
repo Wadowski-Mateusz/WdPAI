@@ -15,6 +15,7 @@ Routing::get('user', 'UserController');
 Routing::post('addUser', 'UserController');
 
 Routing::post("addSchool", 'SchoolController');
+Routing::post("deleteSchool", 'SchoolController');
 Routing::get("getSchool", 'SchoolController');
 Routing::get("getSchoolsWithoutDirector", 'SchoolController');
 

@@ -81,4 +81,28 @@ class SchoolRepository extends Repository {
 
     }
 
+    public function schools() : array{
+
+        $stmt = $this -> database -> connect() ->prepare(
+            'select * from schools;'
+        );
+        $stmt->execute();
+        $schools = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = [];
+        foreach ($schools as $school)
+            $results[] = new School($school['id'], $school['address'], $school['name']);
+//        return [];
+
+        return $results;
+    }
+
+    public function deleteSchool(int $schoolId) {
+
+        $stmt = $this -> database -> connect() ->prepare(
+            'delete from schools where id=:schoolId;'
+        );
+        $stmt->bindValue(":schoolId", $schoolId);
+        $stmt->execute();
+    }
+
 }

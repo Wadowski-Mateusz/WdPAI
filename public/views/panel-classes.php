@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" type="text/css" href="/public/css/panel-classes.css">
     <script type="text/javascript" src="/public/js/searchClass.js" defer></script>
+    <script type="text/javascript" src="/public/js/gotoClass.js" defer></script>
     <title>Diarium - Panel Classes</title>
 </head>
 

@@ -133,7 +133,7 @@ input.fileButton {
     line-height: 1.5em;
 }
 
-.classes, .teachers{
+.classes, .teachers, schools-delete{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

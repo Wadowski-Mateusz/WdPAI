@@ -36,4 +36,8 @@ class SubjectController extends AppController {
 
     }
 
+    public function getClassSubjects(int $classId) : array{
+        return $this -> subjectRepository -> getClassSubjects($classId);
+    }
+
 }

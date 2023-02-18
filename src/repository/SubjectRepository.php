@@ -18,7 +18,7 @@ class SubjectRepository extends Repository {
         ]);
     }
 
-    public function getClassSubjects(int $classId){
+    public function getClassSubjects(int $classId) : array{
 
         $stmt = $this->database->connect()->prepare(
             'SELECT * FROM subjects WHERE id_class=:id'

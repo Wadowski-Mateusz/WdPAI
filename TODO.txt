@@ -17,9 +17,6 @@ COOKIE:
 
 1. DOKUMENTACJE W README.MD
 
-3. DIAGRAM ERD
-    Proszę wygenerować diagram ERD lub dodać zaprojektowany w zewnętrznej aplikacji. ERD w formacie .pdf powinno znaleźć się w katalogu głównym na repozytorium projektu.
-
 8. ZŁOŻONOŚĆ BAZY DANYCH
     W bazie nie może występować anomalia modyfikacji i usunięć.
 
@@ -28,9 +25,6 @@ COOKIE:
 
 14. LOGOWANIE
     Proces logowania użytkowników w oparciu o bazę danych, zastosowanie odpowiedniego mapowania i weryfikacji.
-
-16. ROLE UŻYTKOWNIKÓW
-    Aplikacja posiada przypisane role dla użytkowników - co najmniej dwa typy ról.
 
 17. UPRAWNIENIA UŻYTKOWNIKÓW
     Uprawnienia użytkowników powinny być weryfikowane przez system w trakcie działania aplikacji.

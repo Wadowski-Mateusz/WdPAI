@@ -3,9 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/adding.css">
     <link rel="shortcut icon" href="/public/img/logo.svg">
-
     <script type="text/javascript" src="/public/js/registerValidate.js" defer></script>
-    <script type="text/javascript" src="/public/js/schoolsWithoutDirector.js" defer></script>
     <script type="text/javascript" src="/public/js/hidingElement.js" defer></script>
     <title> Diarium - add user</title>
 </head>

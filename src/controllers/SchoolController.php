@@ -50,6 +50,25 @@ class SchoolController extends AppController {
     public function getTeachersFromSchool(int $schoolId) : array {
         return $this -> schoolRepository -> teachersFromSchool($schoolId);
     }
-//        return [];
+
+    public function getSchools() : array{
+        return $this -> schoolRepository -> schools();
+    }
+
+    public function deleteSchool(){
+        if (!$this->isPost())
+            return $this->render('delete-school');
+
+        $schoolId = intval($_POST['schools-delete']);
+        if($schoolId == -1){
+            $this->message = ['Wybierz szkołę.'];
+            return $this->render('delete-school', ['messages' => $this->message]);
+        }
+
+        $this -> schoolRepository -> deleteSchool($schoolId);
+
+        $this->message = ['Usunięto szkołę.'];
+        return $this->render('delete-school', ['messages' => $this->message]);
+    }
 
 }

@@ -23,16 +23,7 @@ class SecurityController extends AppController {
 
         $url = "http://$_SERVER[HTTP_HOST]";
 
-        header("Location: {$url}/addUser");
-
-//        if ($_COOKIE['userRole'] == 'student')
-//            header("Location: {$url}/grades");
-//        if ($_COOKIE['userRole'] == 'teacher')
-//            header("Location: {$url}/panelClasses");
-//        if ($_COOKIE['userRole'] == 'director')
-//            header("Location: {$url}/addUser");
-//        if ($_COOKIE['userRole'] == 'admin')
-//            header("Location: {$url}/addUser");
+        header("Location: {$url}/user");
     }
 
     public function deleteCookies(){

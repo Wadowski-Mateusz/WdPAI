@@ -11,7 +11,7 @@
         <?php include 'public/views/nav.php'; ?>
         <main>
             <section class="user-info">
-                <img src="public/uploads/<?= $detail->getAvatarPath(); ?>">
+                <img src="/public/uploads/<?= $detail->getAvatarPath(); ?>">
                 <div class="user-detail">
                     <div class="info">
                         <?= $detail->getName();?>

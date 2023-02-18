@@ -8,15 +8,14 @@ class GradeRepository extends Repository {
     public function addGrade(Grade $grade) : void {
 
         $stmt = $this->database->connect()->prepare('
-        INSERT INTO grades ()
-        VALUES (?, ?, ?, ?)
+        INSERT INTO grades (id_student, id_subject, grade)
+        VALUES (?, ?, ?)
         ');
 
         $stmt->execute([
             $grade -> getStudentId(),
             $grade -> getSubjectId(),
-            $grade -> getGrade(),
-            $grade -> getDateOfIssue(),
+            $grade -> getGrade()
         ]);
     }
 
