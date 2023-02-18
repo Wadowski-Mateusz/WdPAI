@@ -1,0 +1,12 @@
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (39, '75012515147', '$2y$10$ve2hM.et/t9naWIdSLsdbOWpUqXUFAU.EATMzwBgd/X7no3Mobz0S', 1, 45, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (40, '79061725711', '$2y$10$JTLiM0lNJ6C5.zVg0xvG.Os2Q3pbmfg0BaqbRZivRxnI10iBzNwqy', 2, 46, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (48, '19261689435', '$2y$10$N5YzG7mx6bbwAFV6Cxm5ZOYMzPkQvl7q/IhmTs3y5X8lBsyqMnp4q', 3, 54, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (50, '10011127313', '$2y$10$/Lwaq.Y2ZjuCjyZ/exhYieSOJ8n8yXSm3D3KbrssyvPat0VrDqS/u', 3, 56, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (51, '77032988954', '$2y$10$etbvglnCyyaN/c9i1KUUhulwetVNWszAH0kbgbxsAQLXIJxT7PzO2', 4, 57, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (52, '75072222456', '$2y$10$8Cz0Val6QTiFWSSRWLKvU.5G4Qo8e3iFv4olXRb7vWHSegwI04kJG', 4, 58, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (53, '84030793965', '$2y$10$tBC9FFI6PeUDCvBoLyQJIOPvllBkHUwrJt8a0RGFIkHw81gMa6svq', 4, 59, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (55, '18061249968', '$2y$10$OV4es5hHyYS3PfozwcHBjegxX78Rf8LNXiS.5PddQqRQFtfSWjAy.', 4, 61, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (56, '76061544391', '$2y$10$WZcU81vsVhNKdVBjIt0yoels6EfscOBooAt20aSU5CTw9qJUJnU1K', 4, 62, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (46, '45272525886', '$2y$10$YTTNUHCV.vBrKsWKoK338.a0hw4S8ptiIBMWaePNTcuOH0MAlipj6', 2, 52, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (47, '12090895338', '$2y$10$B2mYt5q6pxew7ECEx9xA.eZJN9r48W/cxgDCT4JDFTlfP0lEktfg.', 3, 53, false);
+insert into MY_TABLE (id, pesel, password, id_role, id_detail, is_logged) values (54, '20041266825', '$2y$10$8SJARyAFa//eUdh78hQNw.9oN54Q3dd1p7/5LaUwr5aknSJbiQqY2', 4, 60, true);

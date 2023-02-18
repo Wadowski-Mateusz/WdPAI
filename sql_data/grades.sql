@@ -1,0 +1,15 @@
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (14, 53, 11, 2.33, '2023-02-18 08:19:40.339313');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (15, 53, 11, 2.33, '2023-02-18 08:19:45.508175');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (16, 53, 11, 2.33, '2023-02-18 08:19:46.889586');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (17, 54, 7, 3.33, '2023-02-18 08:20:11.834906');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (18, 54, 7, 3, '2023-02-18 08:20:17.300883');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (19, 54, 7, 4.33, '2023-02-18 08:20:19.437990');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (20, 54, 7, 1.33, '2023-02-18 08:20:21.643999');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (21, 54, 8, 2.67, '2023-02-18 08:20:26.034055');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (22, 54, 8, 4, '2023-02-18 08:20:28.972368');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (23, 54, 10, 4, '2023-02-18 08:20:40.489143');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (24, 54, 10, 1, '2023-02-18 08:20:43.996374');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (25, 54, 10, 1, '2023-02-18 08:20:48.367942');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (26, 54, 10, 1, '2023-02-18 08:20:49.344038');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (27, 54, 10, 1, '2023-02-18 08:20:50.022537');
+insert into MY_TABLE (id, id_student, id_subject, grade, date_of_issue) values (28, 54, 10, 1, '2023-02-18 08:20:50.784954');

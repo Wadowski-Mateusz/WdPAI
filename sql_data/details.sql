@@ -1,0 +1,12 @@
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (45, '1975-12-25', 'Janina', 'Kowalska', 1, 'default_woman.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (46, '2279-01-17', 'Dyrektorr', 'szkoły adminów', 1, 'default_man.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (52, '2245-12-25', 'Rak', 'Krab', 3, 'default_woman.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (53, '1812-10-08', 'Nauczyciel', 'Raka1', 3, 'default_man.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (54, '2219-01-16', 'Nauczyciel', 'Raka2', 3, 'default_man.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (56, '1910-11-11', 'Nauczyciel', 'Raka3', 3, 'default_man.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (57, '2077-12-29', 'uczen', 'kraba1', 3, 'default_man.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (58, '2275-12-22', 'uczen', 'kraba2', 3, 'default_man.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (59, '2084-10-07', 'uczeń', 'kraba3', 3, 'default_woman.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (60, '2120-01-12', 'uczeń', 'kraba4', 3, 'default_woman.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (61, '2218-01-12', 'uczen', 'kraba5', 3, 'default_woman.png');
+insert into MY_TABLE (id, birthday, name, surname, id_school, avatar_path) values (62, '2276-01-15', 'uczen', 'kraba6', 3, 'default_man.png');
