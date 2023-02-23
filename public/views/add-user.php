@@ -3,8 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/adding.css">
     <link rel="shortcut icon" href="/public/img/logo.svg">
-    <script type="text/javascript" src="/public/js/registerValidate.js" defer></script>
-    <script type="text/javascript" src="/public/js/hidingElement.js" defer></script>
+    <script type="text/javascript" src="/public/js/addUserValidate.js" defer></script>
     <title> Diarium - add user</title>
 </head>
 
@@ -62,7 +61,7 @@
                     <?php endif; ?>
 
                     <input class="fileButton" type="file" name="file"/>
-                    <button type="submit">DODAJ</button>
+                    <button type="submit" id="acceptButton">DODAJ</button>
                 </form>
             </section>
         </main>
